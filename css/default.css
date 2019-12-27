@@ -1,5 +1,6 @@
 *{box-sizing: border-box;font-family: monospace ,sans-serif, Arial;
 }
+html{scroll-behavior:smooth;}
 :root {
   --primaryColor:#1b5e20; /*rgb(27,94,32) */
   --primaryColorDark: #003300;
