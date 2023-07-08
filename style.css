@@ -31,7 +31,8 @@ img {
 
 /*---- LEFT MENU ------ */
 .introImg {
-    margin: 5% 10%;
+    width: 60%;
+    margin: 5% 20%;
     border-radius: 50%;
     overflow: hidden;
     box-shadow: 1px 1px 10px gray;
@@ -47,6 +48,7 @@ img {
     overflow: hidden;
     box-shadow: 0px 1px 10px gray;
 }
+
 .introTitle {
     text-align: center;
     color: #1b5e20;
@@ -55,7 +57,7 @@ img {
 
 /* nav menu */
 .navmenu {
-    margin: 10% auto;
+    margin: 5% auto;
     width: 80%;
 }
 
@@ -76,18 +78,24 @@ img {
     font-size: 1.2em;
 }
 
+.QRcode {
+    width: 20%;
+}
+
 .termsConditions {
     font-size: 0.9em;
     margin: auto;
     padding: 1em 2em;
     color: var(--primaryColor);
 }
-.openTermsofuse{
+
+.openTermsofuse {
     display: inline-block;
     width: 100%;
     cursor: pointer;
     text-decoration: underline;
 }
+
 .openTermsofuse:hover {
     color: var(--secondaryColor);
     font-weight: bolder;
@@ -95,7 +103,11 @@ img {
 
 /*----- MAIN CONTAINER ----------*/
 .mainChapters,
-.mainHomework, .mainLab, .mainAssignment, .mainProjects, .mainCopyrighted {
+.mainHomework,
+.mainLab,
+.mainAssignment,
+.mainProjects,
+.mainCopyrighted {
     width: 70%;
     float: right;
     padding: 2em 4em;
@@ -120,6 +132,7 @@ img {
 .txtContainer {
     margin-bottom: 5em;
 }
+
 .db {
     font-weight: 600;
     color: var(--primaryColor);
@@ -145,6 +158,7 @@ img {
     content: '\271B	';
     float: right;
 }
+
 .active,
 .modAccordion:hover {
     background-color: var(--secondaryColor);
@@ -156,57 +170,80 @@ img {
     transform: rotateY(360deg);
     transition: transform 500ms;
 }
+
 .modContent {
     padding: 1em 1em 3em 1em;
     display: none;
     background-color: rgb(254, 254, 254);
 }
-.separator{
+
+.separator {
     height: 1px;
 }
+
 /* --- FOOTER ----*/
-.copyrighted{
-    background-color: rgb(10,10,10);
+.copyrighted {
+    background-color: rgb(10, 10, 10);
     color: whitesmoke;
 }
-.copyrighted a{
+
+.copyrighted a {
     color: whitesmoke;
 }
-.oer_logo img{
-width: 30%;
+
+.oer_logo img {
+    width: 30%;
 }
-.info{
+
+.info {
     margin-top: -1em;
 }
-.oer_logo figcaption{color: whitesmoke;}
-.qcc_map{
+
+.oer_logo figcaption {
+    color: whitesmoke;
+}
+
+.qcc_map {
     margin-top: 2em;
 }
-.QCCGoogleMap{width: 60%;}
-.oer_logo figcaption:hover,.footer_author p a:hover, .qcc_map p a:hover{color: var(--secondaryColor); font-weight: 600;}
+
+.QCCGoogleMap {
+    width: 60%;
+}
+
+.oer_logo figcaption:hover,
+.footer_author p a:hover,
+.qcc_map p a:hover {
+    color: var(--secondaryColor);
+    font-weight: 600;
+}
+
 /*----------------------------------------------------
 ------------- NAVIGATION MENU/ACCORDION --------------
 ----------------------------------------------------*/
-  .collapsibleContainer{
+.collapsibleContainer {
     width: 100%;
     position: fixed;
     left: 0%;
     top: 0%;
-    background-color: rgba(50,50,50,0.8);
+    background-color: rgba(50, 50, 50, 0.8);
     display: none;
-  }
-  .tab{
+}
+
+.tab {
     position: relative;
     overflow: hidden;
-  }
-  .tab input{
+}
+
+.tab input {
     position: absolute;
     opacity: 0;
-  }
-  .tab label{
+}
+
+.tab label {
     position: relative;
     display: block;
-    background-color: rgba(10,10,10,0.6);
+    background-color: rgba(10, 10, 10, 0.6);
     font-weight: 900;
     line-height: 3;
     width: 100%;
@@ -214,24 +251,28 @@ width: 30%;
     border-bottom: ridge 2px white;
     font-family: "arial black";
     color: var(--primaryLightColor);
-  }
-  .collapsible_menu{
+}
+
+.collapsible_menu {
     font-size: 1.5em;
-    padding: 1em 0.5em 1em 2em ;
+    padding: 1em 0.5em 1em 2em;
     text-shadow: 1px 1px 10px black;
-  }
-  .tab-content{
+}
+
+.tab-content {
     max-height: 0px;
     box-shadow: 2px 2px 5px gray;
     transition: max-height 0.5s;
-    background-color: rgba(10,10,10,0.3);
-  }
-  .tab input:checked ~ .tab-content{
-    max-height:100em;
-  }
-  .tab label::after{
+    background-color: rgba(10, 10, 10, 0.3);
+}
+
+.tab input:checked~.tab-content {
+    max-height: 100em;
+}
+
+.tab label::after {
     position: absolute;
-    right:  0%;
+    right: 0%;
     top: 0%;
     display: block;
     width: 3em;
@@ -240,78 +281,100 @@ width: 30%;
     text-align: center;
     transition: all 0.5s;
     font-size: 2em;
-  }
-  .tab input[type="checkbox"] + label::after{content: "\2630";color:var(--primary);}
-  .tab input[type="checkbox"]:checked + label::after{content:"\2716";transform: rotateY(360deg); color:var(--secondary);}
-  .nav_menu{
+}
+
+.tab input[type="checkbox"]+label::after {
+    content: "\2630";
+    color: var(--primary);
+}
+
+.tab input[type="checkbox"]:checked+label::after {
+    content: "\2716";
+    transform: rotateY(360deg);
+    color: var(--secondary);
+}
+
+.nav_menu {
     display: inline-block;
     width: 100%;
-    color:whitesmoke;
+    color: whitesmoke;
     text-decoration: none;
     padding: 1em;
     text-align: center;
-  }
-  .nav_menu:hover{
+}
+
+.nav_menu:hover {
     background-color: var(--secondaryColor);
     color: whitesmoke;
     font-size: 1.2em;
-  }
+}
 
 /*----------------------------------------------------
 ------------- TERMS OF USE MODAL WINDOW  -------------
 ----------------------------------------------------*/
-.modalWindow{
+.modalWindow {
     position: fixed;
-    top: 0%; bottom: 0%; left: 0%; right: 0%;
-    background-color: rgba(10,10,10,0.8);
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    background-color: rgba(10, 10, 10, 0.8);
     transition: ease-in-out 300ms;
     display: none;
 }
-.modalContent{
-    width: 80%; height: 80%;
+
+.modalContent {
+    width: 80%;
+    height: 80%;
     margin: 5em auto;
     background-color: whitesmoke;
     overflow: hidden;
 }
-.modalContent header{
+
+.modalContent header {
     background-color: var(--secondaryColor);
-    color:whitesmoke;
+    color: whitesmoke;
     max-height: 3;
     padding: 0.5em 1em;
     font-size: 1.5em;
     font-weight: 900;
 }
-.closeModal{
-    float:right;
+
+.closeModal {
+    float: right;
     display: inline-block;
     padding: 0.1em;
     border-radius: 50%;
-    font-size:1em;
+    font-size: 1em;
     cursor: pointer;
     transition: ease-in-out 300ms;
 }
-.closeModal:hover{
+
+.closeModal:hover {
     background-color: whitesmoke;
     color: var(--primaryColorDark);
 }
-.modalContent main{
+
+.modalContent main {
     padding: 1em 1.5em;
 }
-.close_modal{
+
+.close_modal {
     display: inline-block;
     margin: 2em;
     width: 30%;
     transition: ease-in-out 300ms;
     background-color: var(--secondaryColor);
     color: whitesmoke;
-    text-decoration:none;
+    text-decoration: none;
     text-align: center;
     padding: 0.5em 3em;
     border-radius: 0.5em;
     font-weight: 300;
 }
-.close_modal:hover{
-    background-color: rgb(10,10,10);
+
+.close_modal:hover {
+    background-color: rgb(10, 10, 10);
     font-weight: 900;
     box-shadow: 0px 0px 1px 5px black;
 }
