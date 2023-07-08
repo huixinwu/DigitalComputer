@@ -1,0 +1,317 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+:root {
+    --primaryColor: #1b5e20;
+    /*rgb(27,94,32) */
+    --primaryColorDark: #003300;
+    --primaryLightColor: #629749;
+    --primaryVeryLight: rgb(220, 250, 220);
+    --secondaryColor: #ff6d00;
+    --secondaryDarkColor: #c43c00;
+    /*rgb(196,60,0)*/
+    --secondaryColorLight: #ffa040;
+    --bgdColor: rgb(250, 255, 250);
+}
+
+/*---- LEFT MENU ------ */
+.introImg {
+    margin: 5% 10%;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 1px 1px 10px gray;
+}
+
+.menuLeft {
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    bottom: 0%;
+    width: 30%;
+    background-color: var(--bgdColor);
+    overflow: hidden;
+    box-shadow: 0px 1px 10px gray;
+}
+.introTitle {
+    text-align: center;
+    color: #1b5e20;
+    font-size: 2em;
+}
+
+/* nav menu */
+.navmenu {
+    margin: 10% auto;
+    width: 80%;
+}
+
+.navmenu a {
+    display: inline-block;
+    padding: 0.8em 0em;
+    text-align: center;
+    color: var(--primaryLightColor);
+    width: 100%;
+    border-radius: 10px;
+    transition: ease-in-out 200ms;
+    font-size: 1.1em;
+}
+
+.navmenu a:hover {
+    background-color: var(--secondaryColor);
+    color: whitesmoke;
+    font-size: 1.2em;
+}
+
+.termsConditions {
+    font-size: 0.9em;
+    margin: auto;
+    padding: 1em 2em;
+    color: var(--primaryColor);
+}
+.openTermsofuse{
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.openTermsofuse:hover {
+    color: var(--secondaryColor);
+    font-weight: bolder;
+}
+
+/*----- MAIN CONTAINER ----------*/
+.mainChapters,
+.mainHomework, .mainLab, .mainAssignment, .mainProjects, .mainCopyrighted {
+    width: 70%;
+    float: right;
+    padding: 2em 4em;
+}
+
+.subtitle {
+    color: var(--primaryColor);
+    border-bottom: ridge 1px var(--secondaryColor);
+    margin: 2em 0em 0em 0em;
+    text-align: center;
+    font-size: 2em;
+}
+
+.subtitleParagraph {
+    margin: 0em 0em 2em 0em;
+    text-align: center;
+    font-style: italic;
+}
+
+/*----  MODULES ---- */
+/* introduction module */
+.txtContainer {
+    margin-bottom: 5em;
+}
+.db {
+    font-weight: 600;
+    color: var(--primaryColor);
+    font-size: 1.1em;
+    margin-top: 3em;
+}
+
+/* module accordion */
+.modAccordion {
+    background-color: whitesmoke;
+    color: var(--primaryColor);
+    cursor: pointer;
+    padding: 1em;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    transition: 0.4s;
+    font-weight: 600;
+}
+
+.modAccordion:after {
+    content: '\271B	';
+    float: right;
+}
+.active,
+.modAccordion:hover {
+    background-color: var(--secondaryColor);
+    color: whitesmoke
+}
+
+.active:after {
+    content: '\26CC';
+    transform: rotateY(360deg);
+    transition: transform 500ms;
+}
+.modContent {
+    padding: 1em 1em 3em 1em;
+    display: none;
+    background-color: rgb(254, 254, 254);
+}
+.separator{
+    height: 1px;
+}
+/* --- FOOTER ----*/
+.copyrighted{
+    background-color: rgb(10,10,10);
+    color: whitesmoke;
+}
+.copyrighted a{
+    color: whitesmoke;
+}
+.oer_logo img{
+width: 30%;
+}
+.info{
+    margin-top: -1em;
+}
+.oer_logo figcaption{color: whitesmoke;}
+.qcc_map{
+    margin-top: 2em;
+}
+.QCCGoogleMap{width: 60%;}
+.oer_logo figcaption:hover,.footer_author p a:hover, .qcc_map p a:hover{color: var(--secondaryColor); font-weight: 600;}
+/*----------------------------------------------------
+------------- NAVIGATION MENU/ACCORDION --------------
+----------------------------------------------------*/
+  .collapsibleContainer{
+    width: 100%;
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    background-color: rgba(50,50,50,0.8);
+    display: none;
+  }
+  .tab{
+    position: relative;
+    overflow: hidden;
+  }
+  .tab input{
+    position: absolute;
+    opacity: 0;
+  }
+  .tab label{
+    position: relative;
+    display: block;
+    background-color: rgba(10,10,10,0.6);
+    font-weight: 900;
+    line-height: 3;
+    width: 100%;
+    font-size: 0.9em;
+    border-bottom: ridge 2px white;
+    font-family: "arial black";
+    color: var(--primaryLightColor);
+  }
+  .collapsible_menu{
+    font-size: 1.5em;
+    padding: 1em 0.5em 1em 2em ;
+    text-shadow: 1px 1px 10px black;
+  }
+  .tab-content{
+    max-height: 0px;
+    box-shadow: 2px 2px 5px gray;
+    transition: max-height 0.5s;
+    background-color: rgba(10,10,10,0.3);
+  }
+  .tab input:checked ~ .tab-content{
+    max-height:100em;
+  }
+  .tab label::after{
+    position: absolute;
+    right:  0%;
+    top: 0%;
+    display: block;
+    width: 3em;
+    height: 3em;
+    line-height: 2;
+    text-align: center;
+    transition: all 0.5s;
+    font-size: 2em;
+  }
+  .tab input[type="checkbox"] + label::after{content: "\2630";color:var(--primary);}
+  .tab input[type="checkbox"]:checked + label::after{content:"\2716";transform: rotateY(360deg); color:var(--secondary);}
+  .nav_menu{
+    display: inline-block;
+    width: 100%;
+    color:whitesmoke;
+    text-decoration: none;
+    padding: 1em;
+    text-align: center;
+  }
+  .nav_menu:hover{
+    background-color: var(--secondaryColor);
+    color: whitesmoke;
+    font-size: 1.2em;
+  }
+
+/*----------------------------------------------------
+------------- TERMS OF USE MODAL WINDOW  -------------
+----------------------------------------------------*/
+.modalWindow{
+    position: fixed;
+    top: 0%; bottom: 0%; left: 0%; right: 0%;
+    background-color: rgba(10,10,10,0.8);
+    transition: ease-in-out 300ms;
+    display: none;
+}
+.modalContent{
+    width: 80%; height: 80%;
+    margin: 5em auto;
+    background-color: whitesmoke;
+    overflow: hidden;
+}
+.modalContent header{
+    background-color: var(--secondaryColor);
+    color:whitesmoke;
+    max-height: 3;
+    padding: 0.5em 1em;
+    font-size: 1.5em;
+    font-weight: 900;
+}
+.closeModal{
+    float:right;
+    display: inline-block;
+    padding: 0.1em;
+    border-radius: 50%;
+    font-size:1em;
+    cursor: pointer;
+    transition: ease-in-out 300ms;
+}
+.closeModal:hover{
+    background-color: whitesmoke;
+    color: var(--primaryColorDark);
+}
+.modalContent main{
+    padding: 1em 1.5em;
+}
+.close_modal{
+    display: inline-block;
+    margin: 2em;
+    width: 30%;
+    transition: ease-in-out 300ms;
+    background-color: var(--secondaryColor);
+    color: whitesmoke;
+    text-decoration:none;
+    text-align: center;
+    padding: 0.5em 3em;
+    border-radius: 0.5em;
+    font-weight: 300;
+}
+.close_modal:hover{
+    background-color: rgb(10,10,10);
+    font-weight: 900;
+    box-shadow: 0px 0px 1px 5px black;
+}

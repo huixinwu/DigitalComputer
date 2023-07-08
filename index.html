@@ -1,713 +1,1118 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
     <title>Digital Computer Theory</title>
-  </head>
-  <body>
-    <h1 class="title">Digital Computer Theory</h1>
-    <figure>
-      <div class="introImage">
-        <p class="p1">"Transistor density on integrated circuits doubles about every two years"
-        <br><i>Moore's Law</i></p>
-        <p class="p2">"Technology is just a tool. In terms of getting the kids working together and motivating them, the teacher is the most important."
-        <br><i>Bill Gates</i></p></p>
-        <p class="p3">"Technology, like art, is a soaring exercise of the human imagination"
-        <br><i>Daniel Bell</i></p></p>
-      </div>
-      <figcaption><i>Photo by Prof. Wu</i></figcaption>
-    </figure>
-    <div class="navTab" id="navTab">
-      <a class="nav_tabs" href="#course" style="border-left: ridge var(--secondaryColor);" >Digital Computer Theory</a>
-      <a class="nav_tabs" href="#chapters">Chapters</a>
-      <a class="nav_tabs" href="#exercises">Exercises and Homework</a>
-      <a class="nav_tabs" href="#labExp">Lab Experiments</a>
-      <a class="writing" href="#wi">Technical Writing Assignments</a>
-    </div>
-    <!-- navigation tabs -->
+</head>
 
+<body>
+    <!---------------------------------------------------->
+    <!----------------- LEFT ASIDE MENU ------------------>
+    <!---------------------------------------------------->
+    <aside class="menuLeft">
+        <a href="#introduction">
+            <figure class="introImg"><img src="img/circuit-board.jpg" alt="image of a digital circuit"></figure>
+        </a>
+        <a href="#introduction" style="text-decoration: none;">
+            <h1 class="introTitle">Digital Computer Theory</h1>
+        </a>
 
-    <div class="txtContainer" id="course">
-      <dl>
-        <dt><b>PREFACE</b></dt>
-        <br>
-        <dd>
-          This OER material is intended for use as the first level of Digital Computer Theory for a two and four year engineering technology program. The lecture and laboratory manual contains 13 weekly lecture and lab experiments.   The topics range from basic technical skills through numerical system, logic gates, combination of logic circuits, simplification of logic circuit using Boolean algebra, DeMorgan’s theory, and Karnaug Map, data control circuits such as multiplexer, binary adder, and BCD decoder, counter design, clock circuits using 555 timer.
-          <br><br>
-          Lab experiments include brief introduction of the experimental topics, step by step procedures, tables and graphs to record measurements, and questions to reinforce the understanding of the theory with the experimental results. Each lab experiment is designed to be completed using a two to three hour practicum period. For equipment, each lab station should include a dual adjustable DC power supply and a quality DMM capable of reading DC voltage, current and resistance.
-          <br><br><br>
-          <b style="color:var(--primaryColor);"><i>A Note from the Authors</i> </b>
-          <br><br>
-          This OER project is based on creating a lecture and laboratory material for the course of Introduction to Digital Computer Theory. In QCC, the Introduction to Digital Computer Theory course is a major required course for students on most of the engineering technology majors. Therefore, this OER material covers the appropriate topics to a sufficient depth of learning of digital circuits while remains readable and accessible manner for the students.
-          <br><br><br>
-          <b style="color:var(--primaryColor);"><i>Acknowledgements</b></i>
-          <br><br>
-          I want to give my thanks to my mother Wanxia who has taught me to trust in myself, in my abilities, and in my dreams. As my mom says: <i>“always do with the best you can offer!”</i>
-          <br><br>
-          I also want to give thanks to the support of OER in QCC that helped me organize the necessary documentation for the publication of this manual. To the professors of the department of Engineering Technology, Mike Metaxas, Stuart Asser, Ali Ragoub, and Ed brugnadge, who contributed ideas for the development of this OER material.
-          <br><br>
-          <i>Huixin Wu</i></dd>
-        <br><br>
-        <dt><b>CURRICULAR OBJECTIVES ADDRESSES BY THIS COURSE</b></dt>
-        <br>
-        <dd>At the end of the course, student shall be able to:
-        <ul>
-          <li>Develop ability to read, write, and convert numbers among the different systems (decimal, binary, hexadecimal, and octal system).</li>
-          <li>Analyze and construct combinational logic circuit using basic logic gates. Also, be able to apply Boolean algebra, DeMorgarn’s theorem, and Karnaugh mapping to reduce and find the equivalent logic circuit. </li>
-          <li>Analyze and describe the basic function of data control circuits such as decoder, encoder, multiplexer, demultiplexer, comparators, and binary adders. </li>
-          <li>Design, examine, and draw timing diagram to any module ripple counters and synchronous counters and how to apply them to a logic circuit.</li>
-          <li>Design, explain, and discuss the operation and application of shift register to perform conversions between serial and parallel data formats.</li>
-          <li>Explain the capacitor charging and discharging phase in a RC circuit, and be able to construct and analyze an astable multivibrator and a monostable multivibrator using a 555 timer.</li>
-          <li>Show ability to interpret a given digital project and be able to apply the most feasible method to complete the project.</li>
-          <li>Be able to design and construct a truth table for a given digital project and use Boolean algebra, DeMorgarn’s theorem, or Karnaugh mapping to reduce and find the equivalent logic circuit.</li>
-          <li>Design and examine a project simplified or equivalent logic circuit using logic gates through a 7 or 14 segment display.</li>
-          <li>Have the ability to design an input clock and a synchronous counter according to the project specifications and be able to incorporate it into a logic circuit</li>
-          <li>Be able to interpret and discuss experimental result through lab reports.</li>
-        </ul>
-      </dd>
-      </dl>
-    </div>
-    <!-- topics -->
-    <div class="topics" id='chapters'>
-        <button class="collapsible">Chapter 1. Introduction to Digital Electronics</button>
-        <div class="content">
-          <p><b>Introduction</b><br><br>The impact of the digital computer on society has been tremendous; in its various forms, it is used to run everything from spacecraft to factories, health-care systems to telecommunications, banks to household budgets.
-            <br><br>
-          The story of how the digital computer evolved is largely the story of an unending search for labor-saving devices. Its roots go back beyond the calculating machines of the 1600s to the pebbles (in Latin, calculi ) that the merchants of Rome used for counting and to the abacus of the fifth century b.c. Although none of these early devices were automatic, they were useful in a world where mathematical calculations performed by human beings were full of human error.
-          <br><br>
-          Digital computer operates on discrete quantities (compare analog computer). All computation is done within a finite number system and with limited precision, associated with the number of digits in the discrete numbers. The numerical information is most often represented by the use of two-state electrical phenomena (on/off, high voltage/low voltage, current/no current, etc.) to indicate whether the value of a binary variable is a “zero” or a “one”. Usually there is automatic control or sequencing (through a program) of operations so that they can be carried through to completion without intervention.
-          <br><br>
-          <i style="font-size:0.8em;">Article obtained in www.encyclopedia.com</i>
-          </p>
-          <br><br>
-          <a href="chapters/chapter1_Introduction.pdf" download target="_blank" class='download'>Download Chapter 1</a>
-          </p><br> <hr> <br>
-          <i style="font-size:0.8em;">Supporting video from www.khanacademy.org</i>
-          <br>
-          <iframe  src="https://www.youtube.com/embed/xfKn5OjHLqQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+        <nav class="navmenu">
+            <a href="#introduction_left">Digital Computer Theory OER</a>
+            <a href="#modules_left">Chapter Modules</a>
+            <a href="#homework_left">Exercises and Homework</a>
+            <a href="#labs_left" >Lab Experiments</a>
+            <a href="#projects_left">Lab Projects</a>
+            <a href="#writingAssignments_left">Technical Writing Assignments</a>
+            <a href="#copyrighted_left" >OER author</a>
+        </nav>
 
-        <button class="collapsible">Chapter 2. Number Systems and Codes</button>
-        <div class="content">
-            <p><b>Introduction</b><br><br>Numerical system is a representative way to display digits, symbols, or letters. There are different ways to represent them, for example, binary number is the fundamental system use in computers and digital electronics because computers store information as 0 and 1, or “bits”, which is a short word for binary digit. On the other hand, outside the computer world, the universal number of system used to represent quantities is the decimal system. Decimal system is the number system used in every day to represent quantities from the beginning of many ancient cultures where they calculated with numerals based on ten, as the human hands have 10 digits.
-            <br><br>
-            In this chapter, students will learn the different number of system use between the world of computers and humans, and how to make the conversion between systems in order for the two different world to understand and communicate. The number of system that will be covered are decimal, binary, hexadecimal, and octal system. At the end of this chapter, BCD, and ASCII number of system.
-            <br><br>
-            <a href="chapters/chapter2_numberSystem.pdf" download target="_blank" class='download'>Download Chapter 2</a>
-            </p><br><hr><br>
-            <i>Supporting video from www.khanacademy.org</i>
-            <br>  <br>
-            <iframe src="https://www.youtube.com/embed/ewokFOSxabs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        <button class="collapsible">Chapter 3. Fundamentals of Digital Logic Circuits</button>
-        <div class="content">
-            <p><b>Introduction</b><br><br>A logic gate is a building block of a digital circuit. Most logic gates have two inputs and one output and are based on Boolean algebra. At any given moment, every terminal is in one of the two binary conditions false (high) or true (low). False represents 0, and true represents 1. Depending on the type of logic gate being used and the combination of inputs, the binary output will differ.  A logic gate can be thought of like a light switch, wherein one position the output is OFF as logic 0, and in another, it is ON as logic 1.</p>
-
-            <br><br>
-            <a href="chapters/chapter3_logicGates.pdf" download target="_blank" class='download'>Download Chapter 3</a>
-            </p>
-            <br> <hr><br>
-            <i>Supporting video from www.khanacademy.org</i>
-            <br> <br>
-            <iframe src="https://www.youtube.com/embed/Sc3lh3D4rCw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <br> <hr> <br>
-            <i>Supporting video from Crash Course Computer Science</i>
-            <br>
-            <iframe src="https://www.youtube.com/embed/gI-qXk7XojA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        <button class="collapsible">Chapter 4. Combination of logic circuit</button>
-        <div class="content">
-            <p><b>Introduction</b><br><br>
-            In digital circuit theory, combinational logic (sometimes also referred to as time-independent logic ) is a type of digital logic which is implemented by Boolean circuits, where the output is a pure function of the present input only.
-            Combinational logic is used in computer circuits to perform Boolean algebra on input signals and on stored data. Practical computer circuits normally contain a mixture of combinational and sequential logic. For example, the part of an arithmetic logic unit, or ALU, that does mathematical calculations is constructed using combinational logic. Other circuits used in computers, such as half adders, full adders, half subtractors, full subtractors, multiplexers, demultiplexers, encoders and decoders are also made by using combinational logic. (Wikipedia, 2019).
-            <br><br>
-            <a href="chapters/Chapter4_logicCircuits.pdf" download target="_blank" class='download'>Download Chapter 4</a>
-            </p><br><hr><br>
-        </div>
-
-        <button class="collapsible">Chapter 5. Logic circuit simplification: Boolean algebra and DeMorgan's Theorem</button>
-        <div class="content">
-            <p><b>Introduction</b><br><br>
-            Boolean algebra is the mathematics of digital systems. It is used to help analyze a logic circuit and express its operation mathematically. Therefore, Boolean algebra can be used to simplify or to find an equivalent logic circuit.  The main operations of Boolean algebra are the conjunction and denoted as ∧, Boolean addition, the disjunction or denoted as ∨, Boolean multiplication, and the negation not denoted as ¬.
-            <br><br>
-            <a href="chapters/Chapter5_BooleanAlgebra_DeMorganTheorem.pdf" download target="_blank" class='download'>Download Chapter 5</a>
-            </p><br><hr><br>
-	    <!-- videos -->
-            <i style="font-size:0.8em;">Supporting video from Vladimir Keleshev channel at www.youtube.com</i>
-            <br>
-            <iframe src="https://www.youtube.com/embed/BGuf7jX03Zw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>            
-            <hr>
-	     <i style="font-size:0.8em;">Supporting video from ENGRTUTOR channel at www.youtube.com</i>
-            <br>
-            <iframe src="https://www.youtube.com/embed/0as464WmfCo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>           
-	    <br>
-	</div>
-
-       <button class="collapsible"> Chapter 6. Logic circuit simplification: Karnaugh Map</button>
-        <div class="content">
-            <p><b>Introduction</b><br><br>
-           The Karnaugh Map (K-map) is a graphical tool used to simplify a logic equation or to convert a truth table to its corresponding logic circuit in a simple, orderly process. Although a K-map can be used for problems involving any number of input variables, its practical usefulness is limited to five or six variables. <br><br>
-            <a href="chapters/chapter6_karnaughMap.pdf" download target="_blank" class='download'>Download Chapter 6 - Karnaugh Map</a>
-            </p><br><hr><br>
-
-		<i>Supporting video from www.youtube.com - Computer Science Channel</i><br>
-		<iframe  src="https://www.youtube.com/embed/3vkMgTmieZI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        <button class="collapsible">Chapter 7. Data Control Circuit</button>
-        <div class="content">
-            <p><b>Introduction</b><br><br>
-		The outputs of Combinational Logic Circuits are only determined by the logical function of their current input state, logic “0” or logic “1”, at any given instant in time.
-	   	<br><br>The result is that combinational logic circuits have no feedback, and any changes to the signals being applied to their inputs will immediately have an effect at the output. In other words, in a Combinational Logic Circuit, the output is dependent at all times on the combination of its inputs. Thus a combinational circuit is memoryless.
-		<br><br><a href="chapters/Chapter7_dataControlCircuit.pdf" download target="_blank" class='download'>Download Chapter 7 - Data Control Circuits</a>
-            </p><br><hr><br>
-	</div>
-
-        <button class="collapsible">Chapter 8. Sequential Logic: introduction to flip flops</button>
-        <div class="content">
-            <p><b>Introduction</b><br><br>
-		    The logic circuits that we have studied so far are consisted mainly of logic gates (AND, OR, NAND, NOR, INVERT) combinational logic. Those circuits are also consider a memoryless circuit. They act as an one time bit flow circuit that do not the capability to save the previous bit information. In this chapter, we will deal with data storage circuitry that will latch on to (remember) a digital state (1 or 0).
-		<br><br><a href="chapters/chapter8_flipflops.pdf" download target="_blank" class='download'>Download Chapter 8 - Introduction to Sequential Logic Circuits</a>
-            </p><br><hr><br>
-        </div>
-
-
-        <button class="collapsible">Chapter 9. Sequential circuit application: Digital Counter Design</button>
-        <div class="content">
-            <p><b>Introduction</b><br><br>
-		    A Counter is a device, which stores (and sometimes displays) the number of times a particular event has occurred, often in relationship to a CLOCK Signal. In electronics, counters can be implemented quite easily using memory devices such as Flip-flops.		<br><br><a href="chapters/chapter8_flipflops.pdf" download target="_blank" class='download'>Download Chapter 8 - Introduction to Sequential Logic Circuits</a>
-            <br><br><a href="chapters/Chapter9_CounterDesign.pdf" download target="_blank" class='download'>Download Chapter 9 - Digital Counter Design</a>
-            </p><br><hr><br>
-        </div>
-
-
-        <button class="collapsible">Chapter 10. Sequential circuit application: Shift Registers and three-state devices</button>
-        <div class="content">
-            <p><b>Introduction</b><br><br>A logic gate is a building block of a digital circuit. Most logic gates have two inputs and one output and are based on Boolean algebra. At any given moment, every terminal is in one of the two binary conditions false (high) or true (low). False represents 0, and true represents 1. Depending on the type of logic gate being used and the combination of inputs, the binary output will differ.  A logic gate can be thought of like a light switch, wherein one position the output is OFF as logic 0, and in another, it is ON as logic 1.</p>
-<!--
-            <br><br>
-            <a href="chapters/chapter3_logicGates.pdf" download target="_blank" class='download'>Download Chapter 3</a>-->
-            </p>
-            <br> <hr><br>
-            <i>Supporting video from www.youtube.com - Columbia Gorge Community College Channel</i>
-            <br> <br>
-		<h3>Basic about shift register</h3>
-		<iframe src="https://www.youtube.com/embed/hRH-_OM4MQc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		<h3>Serial In Serial Out, SISO, shift register</h3>
-		<iframe src="https://www.youtube.com/embed/zazz_LH1Sxo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <br> <hr> <br>
-           </div>
-
-        <button class="collapsible">Chapter 11. Digital clock: introduction to 555 timer</button>
-        <div class="content">
-            <p><b>Introduction</b><br><br>Under construction</p>
-        </div>
-      </div> <!-- end of chapters -->
-
-    <!-- exercises and homeworks -->
-    <div class="exercises" id="exercises">
-      <button class="collapsible colorExercise">Homerwork 1. Number of Systems and Codes</button>
-      <div class="content">
-        <p>
-		<b>Instruction: </b>After finishing reading the topics in Chapter 1, <i>Introduction to Digital Electronics</i>, and Chapter 2, <i>Number Systems and Codes</i>, solve the exercises in homework 1 to strengthen the ability to:
-		<ul>
-			<li>read, write, and convert numbers among the different systems (decimal, binary, hexadecimal, and octal system).</li>
-			<li>be able to write and read alphanumeric codes using ASCII code chart. </li>
-			<li>show ability to add binary codes and find the negative of a number using one’s and 2nd complement method.</li>
-		</ul>
-	      <br>
-		<a href="homework/fall/hw1_numeric.pdf" download target="_blank" class='download'>Download Homework 1</a></p>
-      </div>
-
-      <button class="collapsible colorExercise">Homework 2. Fundamentals of Digital Logic</button>
-      <div class="content">
-          <p>
-		<b>Instruction: </b>After finishing reading the topics in Chapter 3, <i>Fundamentals of Digital Logic Circuits</i>, solve the exercises in homework 2 to strengthen the ability to:
-		<ul>
-			<li> solve logic operation of the basic logic gates: AND, OR, NOT, NAND, NOR, XOR, and XNOR </li>
-		</ul>
-	        <br>
-		<a href="homework/fall/hw2_gate.pdf" target="_blank" class='download'>Download Homework 2</a></p>
-      </div>
-
-      <button class="collapsible colorExercise">Homework 3. Combination of Logic Circuits</button>
-      <div class="content">
-          <p>
-		<b>Instruction: </b>After finishing reading the topics in Chapter 4, <i>Combination of Logic Circuits</i>, solve the exercises in homework 3 to strengthen the ability to:
-		<ul>
-			<li> analyze and construct combinational logic circuit using basic logic gates.</li>
-		</ul>
-	        <br>
-		<a href="homework/fall/hw3_combinationalCircuit.pdf"  target="_blank" class='download'>Download Homework 3</a></p>
-      </div>
-
-      <button class="collapsible colorExercise">Homework 4. Logic circuit simplification: Boolean algebra and DeMorgan's theorem</button>
-      <div class="content">
-          <p>
-		<b>Instruction: </b>After finishing reading the topics in Chapter 5, <i>Logic Circuit Simplification: Boolean algebra and DeMorgan’s Theorem</i>, and Chapter 6,  <i>Logic Circuit Simplification: Karnaugh Map</i>, solve the exercises in homework 4 to strengthen the ability to:
-		<ul>
-			<li> apply Boolean algebra, DeMorgarn’s theorem, and Karnaugh mapping to reduce and find the equivalent logic circuit.</li>
-		</ul>
-	        <br>
-		<a href="homework/fall/hw4_Boolean_DeMorgan.pdf" target="_blank" class='download'>Download Homework 4</a></p>
-      </div>
-
-      <button class="collapsible colorExercise">Homework 5. Logic circuit simplification: Karnaugh Map, K-Map</button>
-      <div class="content">
-          <p>
-		<b>Instruction: </b>After finishing reading the topics in Chapter 7, <i>Data Control Circuit</i>, solve the exercises in homework 3 to strengthen the ability to:
-		<ul>
-		  <li> analyze and describe the basic function of data control circuits such as decoder, encoder, multiplexer, demultiplexer, comparators, and binary adders. </li>
-		</ul>
-	        <br>
-		<a href="homework/fall/hw5_karnaugh.pdf" target="_blank" class='download'>Download Homework 5</a></p>
-      </div>
-
-      <button class="collapsible colorExercise">Homework 6: Data Control Circuit</button>
-      <div class="content">
-          <p>
-		  <b>Instruction: </b>After finishing reading the topics in Chapter 6 <i>Data Control Circuit</i>, solve the exercises in homework 6 to strengthen the ability to:
-		  <ul>
-			  <li>identify the operation of multiplexer.</li>
-			  <li>design a 4-bit decoder circuit.</li>
-			  <li>understand the bit flow an inequality comparator.</li>
-	          </ul>
-		    <br><br>
-		  <a href="homework/fall/hw6_dataControl.pdf" target="_blank" class='download'>Download Homework 6</a></p>
-      </div>
-
-
-      <button class="collapsible colorExercise">Homework 7: Combination of logic circuit, simplification of logic circuit, and data control circuits</button>
-      <div class="content">
-          <p>
-		  <b>Instruction: </b>After finishing reading the topics in Chapter 1, 2, 3, 4, 5, and 6, solve the mid-review exercises to strengthen learning outcomes from homework 1 to homework 5
-		    <br><br>
-		  <a href="homework/fall/hw7_review_Boolean_DeMorgan_DataControl.pdf"  target="_blank" class='download'>Download Homework 7</a></p>
-      </div>
-
-      <button class="collapsible colorExercise">Homework 8: Flip flops</button>
-     <div class="content">
-          <p>
-		<b>Instruction: </b>After finishing reading the topics in Chapter 8, <i>Sequential Logic: Introduction to Flip Flops</i>, solve the exercises in homework 6 to strengthen the ability to:
-		<ul>
-		  <li> understand the operation of different type of digital clocks.</li>
-		  <li> show ability to write and sketch a digital output from the different type of flip flops.</li>
-		</ul>
-	       <br>
-		<a href="homework/fall/hw8_flipFlops.pdf" target="_blank" class='download'>Download Homework 8</a></p>
-      </div>
-
-      <button class="collapsible colorExercise">Homework 9: Digital Counter Design</button>
-      <div class="content">
-          <p>
-		<b>Instruction: </b>After finishing reading the topics in Chapter 9, <i>Sequential Circuit Application: Digital Counter Design</i>, solve the exercises in homework 7 to strengthen the ability to:
-		<ul>
-		  <li> design, examine, and draw timing diagram to any module ripple counters and synchronous counters and how to apply them to a logic circuit.</li>
-		</ul>
-	        <br>
-		<a href="homework/fall/hw9_counterDesign.pdf" target="_blank" class='download'>Download Homework 9</a></p>
-      </div>
-
-      <button class="collapsible colorExercise">Homework 10: Registers and three-state devices</button>
-      <div class="content">
-          <p>
-		<b>Instruction: </b>After finishing reading the topics in Chapter 10, <i>Sequential Circuit Application: Shift Registers and Three-States Devices</i>, solve the exercises in homework 8 to strengthen the ability to:
-		<ul>
-		  <li> design, explain, and discuss the operation and application of shift register to perform conversions between serial and parallel data formats.</li>
-		</ul>
-	        <br>
-		<a href="homework/fall/hw10_register.pdf" target="_blank" class='download'>Download Homework 10</a></p>
-      </div>
-
-	<button class="collapsible colorExercise">Homework 11: digital clock definitions</button>
-	      <div class="content">
-		  <p>
-			  <b>Instruction: </b>After finishing reading the topics in Chapter 11, solve the exercises in homework 9 to strengthen learning outcomes in digital clock definition and designing astable digital clock using a 555 timer
-			    <br><br>
-			  <a href="homework/fall/hw11_timing_diagram.pdf" target="_blank" class='download'>Download Homework 11</a></p>
-	      </div>
-
-      <button class="collapsible colorExercise">Homework 12: flip flops, counter design, shift registers, and digital clock</button>
-      <div class="content">
-          <p>
-		  <b>Instruction: </b>After finishing reading the topics in Chapter 7, 8, 9, and 10, solve the exercises in homework 10 to strengthen learning outcomes from homework 6, 7, and 8
-		    <br><br>
-		  <a href="homework/fall/hw12_FF_Counter_Pulse.pdf" target="_blank" class='download'>Download Homework 12</a></p>
-      </div>
-
-      <button class="collapsible colorExercise">Project 1</button>
-      <div class="content">
-          <p>Under Construction</p>
-      </div>
-
-      <button class="collapsible colorExercise">Project 2</button>
-      <div class="content">
-          <p>Under Construction</p>
-      </div>
-
-
-    </div><!--end of exercises -->
-
-    <!-- Laboratory -->
-    <div class="labExp" id="labExp">
-      <button class="collapsible colorLab">Lab Safety and Lab Behavior </button>
-      <div class="content">
-        <i style="font-size:0.8em;">Information retrieved from <a href="https://www.elitechgroup.com/news/product-news/the-importance-of-safety-in-the-lab">ELITechGroup: The importance of safety in the lab</a></i>
-        <br><br>
-        <p><b>Introduction</b><br><br>
-          Laboratories reap a wide array of safety hazards, which is why it is so vital to understand the important of lab safety. If something goes awry, more than just your research project schedule can be affected. Equipment can be damaged, fines can occur, and individuals on your team can be injured.
-          <br><br>
-          When working in a lab, it is important you to be familiar with the equipment in your working space, even if you don’t use it yourself. It’s also crucial to be cautious of what other researchers, coworkers and peers are doing/using around you. By becoming familiar with the laboratory you’re working in and always following proper safety procedures, you can help to prevent or eliminate hazards. You will also know the proper steps to take in the unfortunate event that something does go wrong. Labs are designed to with safety in mind, however, accidents can happen, which is why it’s best to be prepared for the worst.
-          <br><br>
-          <i>Electricity</i><br>
-          In any lab, there are lots of electrical cords running throughout the room, keeping all of the electronics running efficiently. Although electricity is needed to run throughout the entirety of your laboratory, cords can become a safety hazard if not handled with care. Fire can breakout, individuals can trip and fall over cords, or electrical equipment can get destroyed as a result of a faulty electrical connection.
-          <br><br>
-          To prevent any of the aforementioned from happening, invest in power cords, outlets and power strips. Also, don’t leave cords near heat sources, avoid running cords on the ground near doorways, refrain from using extension cords and don’t connect power strips together.
-          <br><br>
-          Therefore, it is important that you watch the following <i>Lab Safety and Lab Behavior</i> video so you can complete the lab experiments safely and efficiently.
-          <br><hr><br><br>
-          <iframe src="https://www.youtube.com/embed/qPXPz5VWk_8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-
-      <button class="collapsible colorLab">Lab Experiment 0: Brief Math Review</button>
-      <div class="content">
-        <p><b>Introduction</b><br><br>
-          Laboratory 0 is based on a review of the basic mathematics used for digital computing technicians. The topics include how to find the remainder of a division, the basic rules of mathematical order of operation, and basic algebra laws.
-        <br><br><br>
-        <a href="labs/LabExperiment0.pdf" download target="_blank" class='download'>Download Lab Experiment 0</a></p>
-      </div>
-
-        <button class="collapsible colorLab">Lab Experiment 1: Number Systems and Codes</button>
-        <div class="content">
-          <p><b>Introduction</b><br><br>Binary number and digital codes are fundamental to computers and digital electronics. Computers store information as “bits”, short for binary digit. A bit is a 0 or a 1, but can be represented in many ways. For example, as true or false, or a light being on or off. In a computer, a 1 bit is stored as an electrical voltage of 5V, and a 0 bit is 0 volts.  This representation of 1’s and 0’s are known as binary coding. The natural system for computers is to use base 2, which is the binary number of system. Binary numbers use only the digits 0 and 1, and each position corresponds to a power of 2.
-            <br><br>
-          The decimal system is important because it is universally used to represent quantities outside a digital system. In a decimal system, numbers are encoded in a positional number system. Each number is represented by a string of digits, where each digit position has an associated weight. For example: 3956 = (3*1000) + (9*100) + (5*10) + (4*1).
-            <br><br>
-          Since binary code are extremely long, one way to simplify a binary code is by grouping into a group of 4-bits or 3-bits. A group of 4-bit (nibbles) is called the hexadecimal number of system. It is a base 16 system because it has 16 digits, 24 = 16. To represent a single hexadecimal digit, we use 0-9 and then A, B, C, D, E, F to represent the 10, 11, 12, 13, 14, and 15, respectively.
-          <br><br>
-          Like the hexadecimal number system, the octal number system provides a convenient way to express binary number and codes. However, it is used less frequently than hexadecimal in conjunction with computers and microprocessors to express binary quantities. One octal digit is a decimal representation of a group of 3-bit. Therefore, the octal number system is a base of 8 system composed of eight digits, 0-7.
-          <br><br><br>
-          <a href="labs/LabExperiment1.pdf" download target="_blank" class='download'>Download Lab Experiment 1</a>
-        </p>
-        </div>
-
-        <button class="collapsible colorLab">Lab Experiment 2:  Using Multisim to Build Digital Circuit</button>
-        <div class="content">
-          <p><b>Introduction</b><br><br>Multisim is a schematic capture and simulation application that assists you in carrying out the major steps in the circuit design flow. Multisim can be used for both analog and digital circuits and also includes mixed analog/digital simulation capability, and microcontroller co-simulation. Simulating the circuits before building them, catches errors early in the design flow, saving time and money.
-          <br><br><br>
-          <a href="labs/LabExperiment2.pdf" download target="_blank" class='download'>Download Lab Experiment 2</a>
-        </p>
-        </div>
-
-        <button class="collapsible colorLab">Lab Experiment 3: Introduction to Digital Electronics Lab Equipment and Components</button>
-        <div class="content">
-            <p><b>Introduction</b><br><br>Lab experiment 3 presents simple experiments to understand the basic use of the digital components.<br><br><br>
-            <a href="labs/LabExperiment3.pdf" download target="_blank" class='download'>Download Lab Experiment 3</a>
-           </p>
-        </div>
-
-        <button class="collapsible colorLab">Lab Experiment 4: Basic Logic Gates</button>
-        <div class="content">
-            <p><b>Introduction</b><br><br>Digital signals is made up of series of 1’s and 0’s that represent numbers, letters, symbols, or control signals. Those series of 1’s and 0’s can be measured using an oscilloscope and plot into a timing diagram. In the timing diagram, logic of 1’s and 0’s is represented by a HIGH and a LOW voltage level respectively. The voltage level to represent a HIGH is between 1.5 V and 5 V, and a LOW voltage level is closed to 0 V. Timing diagram is used to show the voltage level between 5 V and 0 V, which is digital logic 1 (HIGH = 5 V) and 0 (LOW = 0 V). <br><br>
-            Logic gates are integrated circuit (IC) that performs a logic operation on one or more logic inputs, and produce a single logic output. They are commonly found in digital circuit, and the five basic logic gates are AND, OR, NAND, NOR, and NOT (inverter) gate, plus two especial gates which are Exclusive-OR (X-OR) and Exclusive-NOR (X-NOR). For today’s lab, you will build and experiment seven different logic gates.  For each logic gate, build the circuit, observe and record the output in its respective truth table, and sketch a timing diagram of the output signal according to the truth table.
-            <br><br><br>
-            <a href="labs/LabExperiment4.pdf" download target="_blank" class='download'>Download Lab Experiment 4</a>
-          </p>
-        </div>
-
-        <button class="collapsible colorLab">Lab Experiment 5: Combination Logic Circuits</button>
-        <div class="content">
-            <p><b>Introduction</b><br><br>The theoretical operation of a combination logic circuit can be predicted by analyzing the circuit’s output for every possible input combination. The circuit analysis for each input combination is performed by determining the resultant output of each gate, working from the input side of the circuit to the output.
-              <br><br>
-            Logic circuits may be functionally equivalent. They may perform the same function (their logic truth tables are identical) but be constructed from different logic gates or interconnected in an entirely different manner.
-            <br><br>
-            The process of combinational circuit design start from obtaining a Sum-Of-Product, SOP, equation, which is the most commonly used format for writing logic expressions. SOP expressions can be quickly written from a truth table and they are easily implemented using a tow-level (not counting inverters that may be needed) gate network. Conversely, these standard circuits that are used to implement SOP functions can be quickly analyzed just by inspection. A SOP expression consists of two or more products (AND operation) terms that are sum (OR operation) together. The SOP expression is obtained from a truth table by writing down all of the product terms (called midterms) whose outputs are high fro the desired function and then add them together. The resultant and simplified SOP expression can be directly implemented with either AND/OR or NAND/NOR circuit designs. (Moss, 2004).
-            <br><br><br>
-            <a href="labs/LabExperiment5.pdf" download target="_blank" class='download'>Download Lab Experiment 5</a>
-          </p>
-        </div>
-
-        <button class="collapsible colorLab">Lab Experiment 6: Simplification of Logic Circuit Using Boolean Algebra and DeMorgan’s Theorem</button>
-        <div class="content">
-            <p><b>Introduction</b><br><br>Many times in the design on logic circuits, the logic output in SOP expression might have to reduce to its simplest form or change its form to a more convenient one to implement the expression most efficiently.
-              <br><br>
-              Boolean algebra is used to describe how signals are combined to create a desired output. It is also a very important tool, along with the application of DeMorgan’s theorem, uses to reduce expressions to minimal terms to minimize the hardware required in constructing a circuit.
-              <br><br>
-              The Boolean rules are based on the expressions using inverters (NOT), AND, and OR gates, while DeMorgan’s theorem are based on the equivalency of a NAND and NOR gates.
-            <br><br><br>
-            <a href="labs/Lab6_BooleanDeMorgan.pdf" download target="_blank" class='download'>Download Lab Experiment 6</a>  </p>
-        </div>
-
-        <button class="collapsible colorLab">Lab Experiment 7: Simplification of Logic Circuit Using Karnaugh Map</button>
-        <div class="content">
-            <p><b>Introduction</b><br><br>The basic procedure for combinational logic circuit design is to first develop the truth table that defines the desired function and then from the table, write a simplified SOP expression. The expression can be simplified using various techniques such as Boolean algebra and Karnaugh Mapping.
-            <br><br>
-            Karnaugh Mapping is a simple and fast procedure for reducing SOP logic expressions and thereby also reducing the implemented circuit’s complexity and cost. In Karnaugh mapping, the function is defined graphically. The relationship between the function’s inputs and the output are plotted in a Karnaugh Map (K-Map). This will be the same information that would be listed in the truth table for the function. If the K-Map is not properly labeled, the function cannot be correctly simplified and the resulting design will be wrong. With K-Mapping, the function reduction is accomplished by forming appropriate groupings of adjacent 1s in the output. In connection to it, the number of one that each group can have must be in a base of 2, for example, group of 24 = 16, 23 = 8, 22 = 4 1s, 21 = 1, or 20 = 1 1’s. Then identify the common input variables for the group and write the indicated product term.
-            <br><br>
-            Karnaugh Mapping can best be applied to functions with 5 or fewer input variables.
-
-            <br><br><br>
-            <a href="labs/LabExperiment7.pdf" download target="_blank" class='download'>Download Lab Experiment 7</a></p>
-        </div>
-
-        <button class="collapsible colorLab">Lab Experiment 8: Decoder Circuit: Binary-Coded-Decimal to 7-segment Decoder</button>
-        <div class="content">
-            <p>Introduction</b><br><br>A Binary Coded Decimal is a number in which each decimal digit is coded as a binary number. Each decimal digit can be one of the following: 0, 1, 2, 3, 4, 5, 6, 7, 8, or 9. The largest decimal symbol is 9, and its binary representation needs 4 bits (10012.).
-              <br><br>
-            Therefore the input to a decoder that accepts a BCD number needs 4 input variables. In this experiment we will assign the letters A (LSB), B, C, and D (MSB) to the BCD input variables.
-            <br><br>
-            A very popular and user friendly display for decimal symbols is the 7 segment display. This display consists of 7 rectangular shaped LEDs arranged in a figure 8.1. Each one of these is named a through g as can be seen in the following picture. There are two types of 7 segment displays, namely the common anode and the common cathode. Here we will use a common anode display. Pin 3 is connected to +5V. A 220 Ω resistor is connected to the cathode of each LED. To light any particular LED segment, its resistor must be grounded. Therefore a ground (or 0) turns the LED on. Keep in mind that pins 4, 5, and 12 are not present in the display.
-		 <br><br><br>
-		    <a href="labs/Lab8_7segment.pdf" download target="_blank" class='download'>Download Lab Experiment 8</a></p>
-        </div>
-
-        <button class="collapsible colorLab">Lab Experiment 9: Data Selector - Multiplexer</button>
-        <div class="content">
-            <p><b>Introduction</b><br><br>A multiplexer performs the function of selecting the input on any one of several input lines and
-		feeding this input to one output line. Usually there are 4, 8, or 16 inputs. These are referred to as
-		4 to 1, 8 to 1, or 16 to 1 multiplexers. A multiplexer is also referred to as a ‘Data Selector’ and
-		sometimes as a MUX. A MUX can be used in two ways. One way is to use it to implement a
-		hardware version of a truth table. The other way is to use it to convert parallel data bits into a
-		stream of serial data bits.</p>
-		<br><br><br>
-		    <a href="labs/Lab9_Multiplexer.pdf" download target="_blank" class='download'>Download Lab Experiment 9: Multiplexer</a></p>
-        </div>
-
-        <button class="collapsible colorLab">Lab Experiment 10: Logical Function Circuit: Comparator </button>
-        <div class="content">
-            <p><b>Introduction</b><br><br>The basic function of a comparator is to compare the magnitude of two binary numbers to determine the relationship between them. In its simplest form, a comparator determines if two binary numbers are equal or not. These comparators can be set up with relatively simple gates.</p>
-            <br><br><br>
-	    <a href="labs/lab10_comparator.pdf" download target="_blank" class='download'>Download Lab Experiment 10: Comparator</a></p>
-	</div>
-
-        <button class="collapsible colorLab">Lab Experiment 11: Introduction to flip flops</button>
-        <div class="content">
-            <p><b>Introduction</b><br><br>The Flip Flop is a bistable (stable in two states) multivibrator. The other two types of
-		multivibrators are the monostable or one shot (stable in one state only) and the astable (not
-		stable) or oscillator. The Flip Flop is the basic memory device because by staying in the state that
-		it was assigned, it “remembers” the last state. In FF talk, when Q=1 the FF is said to be “set”
-		while when Q=0 it is said to be “reset” or “clear.” Some Flip Flops may have a reset (or clear)
-		and/or a set line that directly change the output. All Flip Flops change states according to data
-		lines on clock pulses.</p>
-		<br><br><br>
-	    	<a href="labs/lab11_flipFlops.pdf" download target="_blank" class='download'>Download Lab Experiment 11: Introduction to flip flops</a></p>
-
-        </div>
-
-        <button class="collapsible colorLab">Lab Experiment 12: Design of Synchronous Counter</button>
-        <div class="content">
-            <p><b>Introduction</b><br><br>Most counters follows a normal binary sequence, although their counting sequences can be somewhat altered, for example, 000, 010,100, 110, …
-		<br><br>Several methods exist for designing counters that follow arbitrary sequences, in this exercise, you will be introduced to the design a synchronous counter using J-K flip flops.
-	    </p>
-	    <br><br><br>
-	    <a href="labs/Lab12_SynchronousCounters.pdf" download target="_blank" class='download'>Download Lab Experiment 12: Design of Synchronous Counter</a></p>
-
-        </div>
-
-        <button class="collapsible colorLab">Lab Experiment 13: Digital Pulse -  Astable Oscillator Using 555-timer</button>
-        <div class="content">
-            <p>Under Construction</p>
-        </div>
-
-        <button class="collapsible colorLab">Lab Experiment Project 1: Digital Design - Display a name </button>
-        <div class="content">
-            <p><b>Introduction</b><br><br>Using Multisim, design a decoder (like the 7447) that will display each letter of either your first or last name (use 5 letters).  A template and worksheet are provided to you as a starting point.  There is an example solution on page 3.  Your report should describe the design process and must include the Multisim file for your design along with the completed Truth Table and Karnaugh maps.</p>
-	    <br><br><br>
-	    <a href="labs/project1.pdf" download target="_blank" class='download'>Download Lab Experiment Project 1: Digital Design</a></p>
-        </div>
-
-	<button class="collapsible colorLab">Lab Experiment Project 2: Circuit Design - Display a number sequence</button>
-        <div class="content">
-            <p><b>Introduction</b><br><br>Design a six state skip counter using either JK or D Flip-Flops</p>
-	    <br><br><br>
-	    <a href="labs/project2.pdf" download target="_blank" class='download'>Download Lab Experiment Project 2: Digital Design</a></p>
-        </div>
-
-        <button class="collapsible colorLab">Appendix</button>
-        <div class="content" id="labReportSample">
-          <br>
-            <a href="labs/appendix.pdf" download target="_blank" class='download'>Download Appendix 1 - Lab Report Format Sample</a> <br><br>
-        </div>
-    </div><!-- end of lab experiment -->
-
-    <!-- writing assignments -->
-    <div class="wi" id="wi">
-      <button class="collapsible writing">Writing Assignment 1 (Low Stakes): <i>
-      Time, culture, and technology</i>
-      </button>
-      <div class="content">
-          <p>Homework Question: The numerical system has been with humanity since the creation of the counting system and has been with us ever since. The numerical system is so close to us that we unknowingly use it almost in all daily activities. Write three daily activities that you unconsciously use a number system without realizing it.
-          <br><br>
-					<a href="wi/WA1_LowStake_NumericSystem.pdf" download target="_blank" class='download'>Download Writing Assignment 1 (Low Stakes)</a>																																					</p>
-        </div>
-
-        <button class="collapsible writing">Writing Assignment 1 (High Stakes): <i>
-        Time, culture, and technology</i>
-        </button>
-        <div class="content">
-          <dl>
-            <dt><b>GENERAL DESCRIPTION</b></dt><br>
-            <dd>
-            Your first writing assignment is to read and write a critique of an article about numerical system. The article is named Five Great 2014 Articles of Numerical System and it is published in www.glossographia.wordpress.com (Glossgraphia, 2018). The argument of the critique must be linked to the discussion of the subject as requested by the instructor. With respect to the technical part, the format of the writing assignment has to follow the technical requirement established by the instructor of the class. </dd>
-            <br><br>
-            <dt><b>THE ARTICLE</b></dt><br>
-            <dd>
-            Bender, Andrea, and Sieghard Beller. 2014. “Mangarevan invention of binary steps for easier calculation.” Proceedings of the National Academy of Sciences 111 (4):1322-1327.
-            <br>
-            When Leibniz demonstrated the advantages of the binary system for computations as early as 1703, he laid the foundation for computing machines. However, is a binary system also suitable for human cognition? One of two number systems traditionally used on Mangareva, a small island in French Polynesia, had three binary steps superposed onto a decimal structure. Here, we show how this system functions, how it facilitated arithmetic, and why it is unique. The Mangarevan invention of binary steps, centuries before their formal description by Leibniz, attests to the advancements possible in numeracy even in the absence of notation and thereby highlights the role of culture for the evolution of and diversity in numerical cognition. (Glossgraphia, 2018)
-          </dd><br><br>
-          <dt> <b>DISCUSSION OF THE SUBJECT</b> </dt><br>
-          <dd>Technology and culture are key contributors to the way in which change occurs over time.<br>
-          According to the article, and your lived experience, do you believe there are benefits to using a binary number system over a base of ten? What role does culture play in our number systems and how has technological advancements modified our numeracy system over time.</dd><br><br>
-          <dt> <b>TECHNICAL REQUIREMENT</b> </dt><br>
-          <dd>
-            <ul>
-              <li>Format: The writing assignment MUST be typed, Word document, font size: 12 pts, double line spacing, 1” by 1” margin.</li>
-              <li>Length: 2 pages, at least 200 words not including cover page.</li>
-              <li>The cover page should have the following information:
-                <ul>
-                  <li>College name (Queensborough Community College)</li>
-                  <li>Department: Engineering Technology</li>
-                  <li>Course name: ET540 Digital Computing Theory</li>
-                  <li>Title of your writing assignment</li>
-                  <li>Student’s name</li>
-                  <li>Submitted date</li>
-                  <li>Instructor:</li>
-                </ul>
-              </li>
-              <li>Organization: The cover goes on page 1, and the student's discussion and critique goes on page 2 and 3</li>
-            </ul>
-          </dd>
-          <dt> <b>GRADING </b></dt><br>
-          <dd>
-            <ul>
-              <li>Technical Requirement: 20 points</li>
-              <li>2 pages (at least 600 words) of discussion and critique: 80 points</li>
-            </ul>
-          </dd>
-        </dl>
-        <br><br>
-					<a href="wi/WA1_HighStake_Numerical System.pdf" download target="_blank" class='download'>Download Writing Assignment 1 (High Stakes)</a>
-          <br><br>
-      </div>
-
-      <button class="collapsible writing">Writing Assignment 2 (Low Stakes): <i>
-      Present Your Perspective on a Technological Issue</i>
-      </button>
-      <div class="content">
-          <p>Question 1:  When you have a research project, do you consider as an alternative to collect information from the library to complete your project? Why or why not?
-          <br><br>
-          Circle your answer in the scale of 1(strongly disagree) to 5(strongly agree)<br><br>
-          <ol type="a">
-            <li>I usually visit the college library. 1	2	3	4	5 </li>
-            <li>I usually visit the library in my neighborhood. 1	2	3	4	5</li>
-            <li>I feel that going to the library is a waste of time and boring. 1	2	3	4	5</li>
-            <li>Libraries are rather a hang site for young people than a research site or a study place. 1	2	3	4	5 </li>
-            <li>I understand and I know how to find information, documentaries, and citations in a library. 1 2 3 4 5 </li>
-        </ol>
-          <br><br>
-          <a href="wi/WA2_LowStake_TechnologyIssue.pdf" download target="_blank" class='download'>Download Writing Assignment 2 (Low Stakes)</a></p>
-      </div>
-
-      <button class="collapsible writing">Writing Assignment 2 (High Stakes): <i>
-      Present Your Perspective on a Technological Issue</i>
-      </button>
-      <div class="content">
-          <p>
+        <p class="termsConditions">2023 @ by professor H. Wu. &nbsp&nbsp<a class="openTermsofuse">Terms of use</a></p>
+    </aside>
+    <!---------------------------------------------------->
+    <!----------------- INTRODUCTION--- ------------------>
+    <!---------------------------------------------------->
+    <div class="separator" id="introduction"></div>
+    <main class="mainChapters" id="introduction_left">
+        <!-- introduction -->
+        <h2 class="subtitle" >What is this OER about?</h2>
+        <p class="subtitleParagraph">Familiarize yourself with the teaching material</p>
+        <section class="txtContainer" id="mod1">
             <dl>
-              <dt><b>GENERAL DESCRIPTION</b></dt><br>
-              <dd>Your second writing assignment, you have to present your personal perspective to a social technological issue assigned by your instructor. As part of this social technology writing assignment, you have to visit a part of the community to collect information about the technology issue and create supporting ideas to defend your perspective. You can also get information from the internet or library citations as data and statistics to help in your discussion. All the information obtained by the media mentioned must be documented as citations in your writing assignment.
-              <br><br>
-              You are not required to do an extensive work on your project, but still you need to have good supports on your arguments, good organization, and noteworthy ideas. Your purpose of your issue is to determine how well you can develop a compelling argument supporting your own perspective on a technological issue and propose solutions to it as an engineering technology student</dd>
-              <br><br>
-              <dt><b>THE TECHNOLOGICAL ISSUE</b></dt><br>
-              <dd> <i>With the blossoming of the internet, traditional libraries are obsolete. Students should not be forced to learn traditional research skills, and public libraries should be demolished and the lands they stand on used for more efficient public purposes.</i> </dd>
-              <br><br>
-              <dt> <b>PREPARING YOUR PERSPECTIVE</b> </dt> <br>
-              <dd>You will not be expected to know specific critical thinking or writing terms or strategies; instead, you should be able to use reasons, evidence, and examples to support your position on an issue. Suppose, for instance, that an issue topic asks you consider whether it is important for government to provide financial support public libraries. If your position is that government should fund public libraries, you might support your position by discussing the reasons public libraries is important and explain that libraries are public places where resources is available to anyone. On the other hand, if your position is that government should not support public libraries, you might point out that, given limited governmental funds, public libraries are not as deserving of governmental funding as are other, more socially important, institutions.
-              <br><br>
-               Or, if you are in favor of government funding for public libraries only under certain conditions, you might focus on the technology criteria, cultural concerns, or economic conditions that you think should determine how – or whether – public libraries receive government funds. It is not your position that matters so much as the critical thinking skills you display in developing your position.
-              <br><br>
-              An excellent way to prepare for the issue task is to practice writing on some of the published topics, but remember: you are not allow to copy and paste information from the internet or from a document written by another person. There is no “best” approach: some people prefer to start practicing without regard to the 45-minute time limit; others prefer to take a “timed test” first and practice within the time limit. No matter which approach you take when you practice the issue task, you should review the task directions, then:
-              <ul>
-                <li>Carefully read the claim made in the topic and make sure you understand the issue involved; if it seems unclear, discuss it with a friend, relative, or instructor.</li>
-                <li>Think about the issue in relation to your own ideas and experiences, to events you have read about or observed, and to people you have known; this is the knowledge base from which you will develop compelling reasons and examples in your argument that reinforce, negate, or qualify the claim in some way.</li>
-                <li>Decide what position on the issue you want to take and defend –remember you are free to agree or disagree completely or to agree with some parts or some applications but not others.</li>
-                <li>Decide what compelling evidence (reasons and examples) you can use to support your position.</li>
-              </ul>
-              Once you have decided on a position to defend, consider the perspective of others who might not agree with your position. Ask yourself:
-              <ul>
-                <li>What reasons might someone use to refute or undermine my position?</li>
-                <li>How should I acknowledge or defend against those views in my essay?</li>
-              </ul>
-              To plan your response, you might want to summarize your position and make brief notes about how you will support the position you are going to take. When you have done this, look over your notes and decide how you will organize your response. Then write a response developing your position on the issue. Even if you don’t write a full response, you should find it helpful to practice with a few of the issue topics and to sketch out your possible responses.
-               </dd>
-              <br><br>
-              <dt> <b>TECHNICAL REQUIREMENT</b> </dt><br>
-              <dd>
-                <ul>
-                  <li>Format: The writing assignment MUST be typed, Word document, font size: 12 pts, double line spacing, 1” by 1” margin.</li>
-                  <li>Length: 5 pages, at least 1200 words not including cover page.</li>
-                  <li>The cover page should have the following information:
+                <dt class="db">Introduction</dt>
+                <dd>
+                    <p>This OER material is intended for use as the first level of Digital Computer Theory for a two and
+                        four year engineering technology program. The lecture and laboratory manual contains 13 weekly
+                        lecture and lab experiments. The topics range from basic technical skills through numerical
+                        system, logic gates, combination of logic circuits, simplification of logic circuit using
+                        Boolean algebra, DeMorgan’s theory, and Karnaug Map, data control circuits such as multiplexer,
+                        binary adder, and BCD decoder, counter design, clock circuits using 555 timer.</p>
+                    <p>Lab experiments include brief introduction of the experimental topics, step by step procedures,
+                        tables and graphs to record measurements, and questions to reinforce the understanding of the
+                        theory with the experimental results. Each lab experiment is designed to be completed using a
+                        two to three hour practicum period. For equipment, each lab station should include a dual
+                        adjustable DC power supply and a quality DMM capable of reading DC voltage, current and
+                        resistance.</p>
+                    <p><em><b>A Note from the Authors</b></em></p>
+                    <p> This OER project is based on reating a lecture and laboratory material for the course of
+                        Introduction to Digital Computer Theory. In QCC, the Introduction to Digital Computer Theory
+                        course is a major required course for students on most of the engineering technology majors.
+                        Therefore, this OER material covers the appropriate topics to a sufficient depth of learning of
+                        digital circuits while remains readable and accessible manner for the students.</p>
+                    <p><em><b>Acknowledgements</b></em></p>
+                    <p> I want to give my thanks to my mother Wanxia who has taught me to trust in myself, in my
+                        abilities, and in my dreams. As my mom says: <i>“always do with the best you can offer!”</i></p>
+                    <p> I also want to give thanks to the support of OER in QCC that helped me organize the necessary
+                        documentation for the publication of this manual. To the professors of the department of
+                        Engineering Technology, Mike Metaxas, Stuart Asser, Ali Ragoub, and Ed brugnadge, who
+                        contributed ideas for the development of this OER material.</p>
+                    <p> <i>Huixin Wu</i></p>
+                </dd>
+
+                <dt class="db">Curricular Objectives Address by This OER</dt>
+                <dd>
+                    <p>At the end of the course, student shall be able to:</p>
                     <ul>
-                      <li>College name (Queensborough Community College)</li>
-                      <li>Department: Engineering Technology</li>
-                      <li>Course name: ET540 Digital Computing Theory</li>
-                      <li>Title of your writing assignment</li>
-                      <li>Student’s name:</li>
-                      <li>Submitted date:</li>
-                      <li>Instructor:</li>
+                        <li>Develop ability to read, write, and convert numbers among the different systems
+                            (decimal,binary, hexadecimal, and octal system).</li>
+                        <li>Analyze and construct combinational logic circuit using basic logic gates. Also, be able to
+                            apply Boolean algebra, DeMorgarn’s theorem, and Karnaugh mapping to reduce and find the
+                            equivalent logic circuit. </li>
+                        <li>Analyze and describe the basic function of data control circuits such as decoder, encoder,
+                            multiplexer, demultiplexer, comparators, and binary adders. </li>
+                        <li>Design, examine, and draw timing diagram to any module ripple counters and synchronous
+                            counters and how to apply them to a logic circuit.</li>
+                        <li>Design, explain, and discuss the operation and application of shift register to perform
+                            conversions between serial and parallel data formats.</li>
+                        <li>Explain the capacitor charging and discharging phase in a RC circuit, and be able to
+                            construct and analyze an astable multivibrator and a monostable multivibrator using a 555
+                            timer.</li>
+                        <li>Show ability to interpret a given digital project and be able to apply the most feasible
+                            method to complete the project.</li>
+                        <li>Be able to design and construct a truth table for a given digital project and use Boolean
+                            algebra, DeMorgarn’s theorem, or Karnaugh mapping to reduce and find the equivalent logic
+                            circuit.</li>
+                        <li>Design and examine a project simplified or equivalent logic circuit using logic gates
+                            through a 7 or 14 segment display.</li>
+                        <li>Have the ability to design an input clock and a synchronous counter according to the project
+                            specifications and be able to incorporate it into a logic circuit</li>
+                        <li>Be able to interpret and discuss experimental result through lab reports.</li>
                     </ul>
-                  </li>
-                  <li>Organization: The cover goes on page 1, and the student's discussion on the technological issue goes on the other 5 pages.</li>
-                </ul>
-              <dt> <b>GRADING</b> </dt> <br>
-              <ul>
-                <li>Technical Requirement: 20 points</li>
-                <li>5 pages of discussion on the technological issue: 80 points</li>
-                <li>Writing assignment 2 will also count as 10 extra points (as maximum) that will be added to your final exam.</li>
-              </ul>
+                </dd>
             </dl>
+        </section>
+    </main>
+    <!---------------------------------------------------->
+    <!----------------- MODULES/CHAPTERS------------------>
+    <!---------------------------------------------------->
+    <div class="separator" id="modules" ></div>
+    <main class="mainChapters" id="modules_left">
+        <h2 class="subtitle">Explore the digital world</h2>
+        <p class="subtitleParagraph">Start learning digital technology concepts</p>
+        <h3 class="divider">Module 1: Numerical System and logic gates</h3>
+        <section class="modules" id="chapter1">
+            <button class="modAccordion">Chapter 1. Introduction to Digital Electronics</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>The impact of the digital computer on society has been tremendous; in its various forms, it is used
+                    to run everything from spacecraft to factories, health-care systems to telecommunications, banks to
+                    household budgets.</p>
+                <p>The story of how the digital computer evolved is largely the story of an unending search for
+                    labor-saving devices. Its roots go back beyond the calculating machines of the 1600s to the pebbles
+                    (in Latin, calculi ) that the merchants of Rome used for counting and to the abacus of the fifth
+                    century b.c. Although none of these early devices were automatic, they were useful in a world where
+                    mathematical calculations performed by human beings were full of human error.</p>
+                <p> Digital computer operates on discrete quantities (compare analog computer). All computation is done
+                    within a finite number system and with limited precision, associated with the number of digits in
+                    the
+                    discrete numbers. The numerical information is most often represented by the use of two-state
+                    electrical phenomena (on/off, high voltage/low voltage, current/no current, etc.) to indicate
+                    whether the value of
+                    a binary variable is a “zero” or a “one”. Usually there is automatic control or sequencing (through
+                    a program) of operations so that they can be carried through to completion without intervention.</p>
+                <p><i style="font-size:0.8em;">Article obtained in www.encyclopedia.com</i></p>
+                <p> <a href="chapters/chapter1_Introduction.pdf" download target="_blank" class='download'>Download
+                        Chapter
+                        1</a></p>
+                <p><b>Supporting videos</b></p>
+                <p><i style="font-size:0.8em;">Supporting video from www.khanacademy.org</i>
+                    <br>
+                    <iframe src="https://www.youtube.com/embed/xfKn5OjHLqQ" frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </p>
+            </div>
+        </section>
+        <section class="modules" id="chapter2">
+            <button class="modAccordion">Chapter 2. Number Systems and Codes</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>Numerical system is a representative way to display digits, symbols, or letters. There are different ways to represent them, for example, binary number is the fundamental system use in computers and digital electronics because computers store information as 0 and 1, or “bits”, which is a short word for  binary digit. On the other hand, outside the computer world, the universal number of system used to represent quantities is the decimal system. Decimal system is the number system used in every day to represent quantities from the beginning of many ancient cultures where they calculated with numerals  based on ten, as the human hands have 10 digits.</p>
+          
+                <p> In this chapter, students will learn the different number of system use between the world of
+                    computers and humans, and how to make the conversion between systems in order for the two different
+                    world to understand and communicate. The number of system that will be covered are decimal, binary,
+                    hexadecimal, and octal system. At the end of this chapter, BCD, and ASCII number of system.</p>
+                <a href="chapters/chapter2_numberSystem.pdf" download target="_blank" class='download'>Download Chapter
+                    2</a>
+                </p>
+                <p><b>Supporting videos</b></p>
+                <p><i>Supporting video from www.khanacademy.org</i></p>
+                <iframe src="https://www.youtube.com/embed/ewokFOSxabs" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </section>
+        <section class="modules" id="chapter3">
+            <button class="modAccordion">Chapter 3. Fundamentals of Digital Logic Circuits</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>A logic gate is a building block of a digital circuit. Most logic gates have two inputs and one
+                    output and are based on Boolean algebra. At any given moment, every terminal is in one of the two
+                    binary conditions false (high) or true (low). False represents 0, and true represents 1. Depending
+                    on the type of logic gate being used and the combination of inputs, the binary output will differ. A
+                    logic gate can be thought of like a light switch, wherein one position the output is OFF as logic 0,
+                    and in another, it is ON as logic 1.</p>
+                <p>
+                    <a href="chapters/chapter3_logicGates.pdf" download target="_blank" class='download'>Download
+                        Chapter 3</a>
+                </p>
+                <p><b>Supporting videos</b></p>
+                <p><i>Supporting video from www.khanacademy.org</i></p>
+                <iframe src="https://www.youtube.com/embed/Sc3lh3D4rCw" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                <p> <i>Supporting video from Crash Course Computer Science</i></p>
+                <iframe src="https://www.youtube.com/embed/gI-qXk7XojA" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </section>
+        <h3 class="divider">Module 2: Combinational of logic circuit and logic circuit simplification</h3>
+        <section class="modules" id="chapter4">
+            <button class="modAccordion">Chapter 4. Combination of logic circuit</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>In digital circuit theory, combinational logic (sometimes also referred to as time-independent logic
+                    ) is a type of digital logic which is implemented by Boolean circuits, where the output is a pure
+                    function of the present input only.
+                    Combinational logic is used in computer circuits to perform Boolean algebra on input signals and on
+                    stored data. Practical computer circuits normally contain a mixture of combinational and sequential
+                    logic. For example, the part of an arithmetic logic unit, or ALU, that does mathematical
+                    calculations is constructed using combinational logic. Other circuits used in computers, such as
+                    half adders, full adders, half subtractors, full subtractors, multiplexers, demultiplexers, encoders
+                    and decoders are also made by using combinational logic. (Wikipedia, 2019).
+                </p>
+                <p> <a href="chapters/Chapter4_logicCircuits.pdf" download target="_blank" class='download'>Download
+                        Chapter 4</a></p>
+            </div>
+        </section>
+        <section class="modules" id="chapter5">
+            <button class="modAccordion">Chapter 5. Logic circuit simplification: Boolean algebra and DeMorgan's
+                Theorem</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>Boolean algebra is the mathematics of digital systems. It is used to help analyze a logic circuit and
+                    express its operation mathematically. Therefore, Boolean algebra can be used to simplify or to find
+                    an equivalent logic circuit. The main operations of Boolean algebra are the conjunction and denoted
+                    as ∧, Boolean addition, the disjunction or denoted as ∨, Boolean multiplication, and the negation
+                    not denoted as ¬.
+                </p>
+                <p> <a href="chapters/Chapter5_BooleanAlgebra_DeMorganTheorem.pdf" download target="_blank"
+                        class='download'>Download Chapter 5</a></p>
+                <p><b>Supporting videos</b></p>
+                <p><i style="font-size:0.8em;">Supporting video from Vladimir Keleshev channel at www.youtube.com</i>
+                </p>
+                <iframe src="https://www.youtube.com/embed/BGuf7jX03Zw" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                <p><i style="font-size:0.8em;">Supporting video from ENGRTUTOR channel at www.youtube.com</i></p>
+                <iframe src="https://www.youtube.com/embed/0as464WmfCo" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </section>
+        <section class="modules" id="chapter6">
+            <button class="modAccordion">Chapter 6. Logic circuit simplification: Karnaugh Map</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>The Karnaugh Map (K-map) is a graphical tool used to simplify a logic equation or to convert a truth
+                    table to its corresponding logic circuit in a simple, orderly process. Although a K-map can be used
+                    for problems involving any number of input variables, its practical usefulness is limited to five or
+                    six variables.
+                </p>
+                <p> <a href="chapters/chapter6_karnaughMap.pdf" download target="_blank" class='download'>Download
+                        Chapter 6 - Karnaugh Map</a></p>
+                <p><b>Supporting videos</b></p>
+                <p><i>Supporting video from www.youtube.com - Computer Science Channel</i>
+                </p>
+                <iframe src="https://www.youtube.com/embed/3vkMgTmieZI" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </section>
+        <section class="modules" id="chapter7">
+            <button class="modAccordion">Chapter 7. Data Control Circuit</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>The outputs of Combinational Logic Circuits are only determined by the logical function of their
+                    current input state, logic “0” or logic “1”, at any given instant in time.
+                </p>
+                <p>The result is that combinational logic circuits have no feedback, and any changes to the signals
+                    being applied to their inputs will immediately have an effect at the output. In other words, in a
+                    Combinational Logic Circuit, the output is dependent at all times on the combination of its inputs.
+                    Thus a combinational circuit is memoryless.
+                </p>
+                <p> <a href="chapters/Chapter7_dataControlCircuit.pdf" download target="_blank"
+                        class='download'>Download Chapter 7 - Data Control Circuits</a></p>
+            </div>
+        </section>
+        <h3 class="divider">Module 3: Sequential Logic Circuits</h3>
+        <section class="modules" id="chapter8">
+            <button class="modAccordion">Chapter 8. Sequential Logic: introduction to flip flops</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>The logic circuits that we have studied so far are consisted mainly of logic gates (AND, OR, NAND,
+                    NOR, INVERT) combinational logic. Those circuits are also consider a memoryless circuit. They act as
+                    an one time bit flow circuit that do not the capability to save the previous bit information. In
+                    this chapter, we will deal with data storage circuitry that will latch on to (remember) a digital
+                    state (1 or 0).
+                </p>
+                <p> <a href="chapters/chapter8_flipflops.pdf" download target="_blank" class='download'>Download Chapter
+                        8 - Introduction to Sequential Logic Circuits</a></p>
+            </div>
+        </section>
+        <section class="modules" id="chapter9">
+            <button class="modAccordion">Chapter 9. Sequential circuit application: Digital Counter Design</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>A Counter is a device, which stores (and sometimes displays) the number of times a particular event
+                    has occurred, often in relationship to a CLOCK Signal. In electronics, counters can be implemented
+                    quite easily using memory devices such as Flip-flops.
+                </p>
+                <p> <a href="chapters/Chapter9_CounterDesign.pdf" download target="_blank" class='download'>Download
+                        Chapter 9 - Digital Counter Design</a></p>
+            </div>
+        </section>
+        <section class="modules" id="chapter10">
+            <button class="modAccordion">Chapter 10. Sequential circuit application: Shift Registers and three-state
+                devices</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>A logic gate is a building block of a digital circuit. Most logic gates have two inputs and one
+                    output and are based on Boolean algebra. At any given moment, every terminal is in one of the two
+                    binary conditions false (high) or true (low). False represents 0, and true represents 1. Depending
+                    on the type of logic gate being used and the combination of inputs, the binary output will differ. A
+                    logic gate can be thought of like a light switch, wherein one position the output is OFF as logic 0,
+                    and in another, it is ON as logic 1.
+                </p>
+                <!--  <p> <a href="chapters/Chapter9_CounterDesign.pdf" download target="_blank" class='download'>Download
+                        Chapter 9 - Digital Counter Design</a></p> -->
+                <p><b>Supporting videos</b></p>
+                <p> <i>Supporting video from www.youtube.com - Columbia Gorge Community College Channel</i></p>
+                <p><b><i>Basic about shift register</i></b></p>
+                <iframe src="https://www.youtube.com/embed/hRH-_OM4MQc" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                <p><b><i>Serial In Serial Out, SISO, shift register</i></b></p>
 
-          <br><br>
-          <a href="wi/WA2_HighStake_Technological_Issue.pdf" download target="_blank" class='download'>Download Writing Assignment 2 (High Stakes)</a></p>
-      </div>
-    </div><!-- end of wi-->
+                <iframe src="https://www.youtube.com/embed/zazz_LH1Sxo" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </section>
+    </main>
+    <!---------------------------------------------------->
+    <!------------------- HOMEWORK ----------------------->
+    <!---------------------------------------------------->
+    <div class="separator" id="homework"></div>
+    <main class="mainHomework" id="homework_left">
+        <h2 class="subtitle" >Homework</h2>
+        <p class="subtitleParagraph">Practice your skills by completing each of the homework</p>
+        <!-- Mod1 -->
+        <h3 class="divider">Module 1: Numerical System and logic gates</h3>
+        <section class="modules" id="homework1">
+            <button class="modAccordion">Homerwork 1. Number of Systems and Codes</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>After finishing reading the topics in Chapter 1, <i>Introduction to Digital Electronics</i>, and
+                    Chapter 2, <i>Number Systems and Codes</i>, solve the exercises in homework 1 to strengthen the
+                    ability to:
+                <ul>
+                    <li>read, write, and convert numbers among the different systems (decimal, binary, hexadecimal, and
+                        octal system).</li>
+                    <li>be able to write and read alphanumeric codes using ASCII code chart. </li>
+                    <li>show ability to add binary codes and find the negative of a number using one’s and 2nd
+                        complement method.</li>
+                </ul>
+                </p>
+                <p> <a href="homework/fall/hw1_numeric.pdf" download target="_blank" class='download'>Download Homework
+                        1</a></p>
+            </div>
+        </section>
+        <section class="modules" id="homework2">
+            <button class="modAccordion">Homework 2. Fundamentals of Digital Logic</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>After finishing reading the topics in Chapter 3, <i>Fundamentals of Digital Logic Circuits</i>, solve
+                    the exercises in homework 2 to strengthen the ability to:
+                <ul>
+                    <li> solve logic operation of the basic logic gates: AND, OR, NOT, NAND, NOR, XOR, and XNOR </li>
+                </ul>
+                </p>
+                <p><a href="homework/fall/hw2_gate.pdf" target="_blank" class='download'>Download Homework 2</a></p>
+            </div>
+        </section>
+        <!-- Mod2 -->
+        <h3 class="divider">Module 2: Combinational of logic circuit and logic circuit simplification</h3>
+        <section class="modules" id="homework3">
+            <button class="modAccordion">Homework 3. Combination of Logic Circuits</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>After finishing reading the topics in Chapter 4, <i>Combination of Logic Circuits</i>, solve the
+                    exercises in homework 3 to strengthen the ability to:
+                <ul>
+                    <li> analyze and construct combinational logic circuit using basic logic gates.</li>
+                </ul>
+                </p>
+                <p><a href="homework/fall/hw3_combinationalCircuit.pdf" target="_blank" class='download'>Download
+                        Homework 3</a></p>
+            </div>
+        </section>
+        <section class="modules" id="homework4">
+            <button class="modAccordion">Homework 4. Logic circuit simplification: Boolean algebra and DeMorgan's
+                theorem</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>After finishing reading the topics in Chapter 5, <i>Logic Circuit Simplification: Boolean algebra and
+                        DeMorgan’s Theorem</i>, and Chapter 6, <i>Logic Circuit Simplification: Karnaugh Map</i>, solve
+                    the exercises in homework 4 to strengthen the ability to:
+                <ul>
+                    <li> apply Boolean algebra, DeMorgarn’s theorem, and Karnaugh mapping to reduce and find the
+                        equivalent logic circuit.</li>
+                </ul>
+                </p>
+                <p><a href="homework/fall/hw4_Boolean_DeMorgan.pdf" target="_blank" class='download'>Download Homework
+                        4</a></p>
+            </div>
+        </section>
+        </section>
+        <section class="modules" id="homework5">
+            <button class="modAccordion">Homework 5. Logic circuit simplification: Karnaugh Map, K-Map</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>After finishing reading the topics in Chapter 7, <i>Data Control Circuit</i>, solve the exercises in
+                    homework 3 to strengthen the ability to:
+                <ul>
+                    <li> analyze and describe the basic function of data control circuits such as decoder, encoder,
+                        multiplexer, demultiplexer, comparators, and binary adders. </li>
+                </ul>
+                </p>
+                <p><a href="homework/fall/hw5_karnaugh.pdf" target="_blank" class='download'>Download Homework 5</a></p>
+            </div>
+        </section>
+        <section class="modules" id="homework6">
+            <button class="modAccordion">Homework 6: Data Control Circuit</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>After finishing reading the topics in Chapter 6 <i>Data Control Circuit</i>, solve the exercises in
+                    homework 6 to strengthen the ability to:
+                <ul>
+                    <li>identify the operation of multiplexer.</li>
+                    <li>design a 4-bit decoder circuit.</li>
+                    <li>understand the bit flow an inequality comparator.</li>
+                </ul>
+                </p>
+                <p> <a href="homework/fall/hw6_dataControl.pdf" target="_blank" class='download'>Download Homework 6</a>
+                </p>
+            </div>
+        </section>
+        <section class="modules" id="homework7">
+            <button class="modAccordion">Homework 7: Combination of logic circuit, simplification of logic circuit, and
+                data control circuits</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>After finishing reading the topics in Chapter 1, 2, 3, 4, 5, and 6, solve the mid-review exercises to
+                    strengthen learning outcomes from homework 1 to homework 5
+                </p>
+                <p><a href="homework/fall/hw7_review_Boolean_DeMorgan_DataControl.pdf" target="_blank"
+                        class='download'>Download Homework 7</a></p>
+            </div>
+        </section>
+        <!-- Mod3 -->
+        <h3 class="divider">Module 3: Sequential Logic Circuits</h3>
+        <section class="modules" id="homework8">
+            <button class="modAccordion">Homework 8: Flip flops</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>After finishing reading the topics in Chapter 8, <i>Sequential Logic: Introduction to Flip Flops</i>,
+                    solve the exercises in homework 6 to strengthen the ability to:
+                <ul>
+                    <li> understand the operation of different type of digital clocks.</li>
+                    <li> show ability to write and sketch a digital output from the different type of flip flops.</li>
+                </ul>
+                </p>
+                <p><a href="homework/fall/hw8_flipFlops.pdf" target="_blank" class='download'>Download Homework 8</a>
+                </p>
+            </div>
+        </section>
+        <section class="modules" id="homework9">
+            <button class="modAccordion">Homework 9: Digital Counter Design</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>After finishing reading the topics in Chapter 9, <i>Sequential Circuit Application: Digital Counter
+                        Design</i>, solve the exercises in homework 7 to strengthen the ability to:
+                <ul>
+                    <li> design, examine, and draw timing diagram to any module ripple counters and synchronous counters
+                        and how to apply them to a logic circuit.</li>
+                </ul>
+                </p>
+                <p><a href="homework/fall/hw9_counterDesign.pdf" target="_blank" class='download'>Download Homework
+                        9</a></p>
+            </div>
+        </section>
+        <section class="modules" id="homework10">
+            <button class="modAccordion">Homework 10: Registers and three-state devices</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>After finishing reading the topics in Chapter 10, <i>Sequential Circuit Application: Shift Registers
+                        and Three-States Devices</i>, solve the exercises in homework 8 to strengthen the ability to:
+                <ul>
+                    <li> design, explain, and discuss the operation and application of shift register to perform
+                        conversions between serial and parallel data formats.</li>
+                </ul>
+                </p>
+                <p><a href="homework/fall/hw10_register.pdf" target="_blank" class='download'>Download Homework 10</a>
+                </p>
+            </div>
+        </section>
+        <section class="modules" id="homework11">
+            <button class="modAccordion">Homework 11: digital clock definitions</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>After finishing reading the topics in Chapter 11, solve the exercises in homework 9 to strengthen
+                    learning outcomes in digital clock definition and designing astable digital clock using a 555 timer.
+                </p>
+                <p><a href="homework/fall/hw11_timing_diagram.pdf" target="_blank" class='download'>Download Homework
+                        11</a></p>
+            </div>
+        </section>
+        <section class="modules" id="homework12">
+            <button class="modAccordion">Homework 12: flip flops, counter design, shift registers, and digital
+                clock</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>After finishing reading the topics in Chapter 7, 8, 9, and 10, solve the exercises in homework 10 to
+                    strengthen learning outcomes from homework 6, 7, and 8.
+                </p>
+                <p> <a href="homework/fall/hw12_FF_Counter_Pulse.pdf" target="_blank" class='download'>Download Homework
+                        12</a></p>
+            </div>
+        </section>
+    </main>
+    <!---------------------------------------------------->
+    <!----------------- LAB EXPERIMENT  ------------------>
+    <!---------------------------------------------------->
+    <div class="separator" id="labs"></div>
+    <main class="mainLab" id="labs_left">
+        <h2 class="subtitle" >Laboratory Experiments</h2>
+        <p class="subtitleParagraph">Hands-on</p>
+        <!-- Introduction -->
+        <h3 class="divider">Introduction</h3>
+        <section class="modules" id="introLab">
+            <button class="modAccordion">Lab Safety and Lab Behavior </button>
+            <div class="modContent">
+                <p><i style="font-size:0.8em;">Information retrieved from <a
+                            href="https://www.elitechgroup.com/news/product-news/the-importance-of-safety-in-the-lab">ELITechGroup:
+                            The importance of safety in the lab</a></i>
+                </p>
+                <p><b>Introduction</b></p>
+                <p> Laboratories reap a wide array of safety hazards, which is why it is so vital to understand the
+                    important of lab safety. If something goes awry, more than just your research project schedule can
+                    be affected. Equipment can be damaged, fines can occur, and individuals on your team can be injured.
+                </p>
+                <p>When working in a lab, it is important you to be familiar with the equipment in your working space,
+                    even if you don’t use it yourself. It’s also crucial to be cautious of what other researchers,
+                    coworkers and peers are doing/using around you. By becoming familiar with the laboratory you’re
+                    working in and always following proper safety procedures, you can help to prevent or eliminate
+                    hazards. You will also know the proper steps to take in the unfortunate event that something does go
+                    wrong. Labs are designed to with safety in mind, however, accidents can happen, which is why it’s
+                    best to be prepared for the worst.</p>
+                <p><i>Electricity</i><br>
+                    In any lab, there are lots of electrical cords running throughout the room, keeping all of the
+                    electronics running efficiently. Although electricity is needed to run throughout the entirety of
+                    your laboratory, cords can become a safety hazard if not handled with care. Fire can breakout,
+                    individuals can trip and fall over cords, or electrical equipment can get destroyed as a result of a
+                    faulty electrical connection.</p>
+                <p>To prevent any of the aforementioned from happening, invest in power cords, outlets and power strips.
+                    Also, don’t leave cords near heat sources, avoid running cords on the ground near doorways, refrain
+                    from using extension cords and don’t connect power strips together.</p>
+                <p> Therefore, it is important that you watch the following <i>Lab Safety and Lab Behavior</i> video so
+                    you can complete the lab experiments safely and efficiently.</p>
 
-    <!-- credits -->
-    <div class="credits" id="credits">
-      This Introduction to Digital Computer Theroy OER material, by Huixin Wu, is copyrighted under the terms of a Creative Commons license:
-      <br><br>
-       <div class="copyrighted">
-        <a href="https://creativecommons.org/licenses/" target="_blank"> <img src="images/copyrighted.png"/></a>  <br>
-         <i>This work is freely redistributable for non-commercial use, share-alike with attribution</i>
-       </div>
-        <br>
-       <hr> <br>
-       <b>About the Authors:</b>
-        Professor Wu is the course coordinator of the Digital Computer Theory course with the department of Engineering Technology at QCC. As the course coordinator, professor Wu updates the course outline and also creates homework and exercises to complement the learning materials for the course. She also has participated in grants and has experiences in creating new teaching terminologies for engineering technology students. She was the CO-PI of the National Science Foundation (NSF) STEM grant titled “A video Lecture Library and an Interactive Systems for Computer Programming Concepts”. In addition from her teaching schedule, she is the lead of the curriculum development of TechWorks grant, and a faculty mentor of the students Undergraduate Research Project program at QCC. Professor Wu has more than ten years of experience teaching  both the Digital Computer Theory course and laboratory in QCC and NYCCT.
-        <br><br><br>
-        For more information or feedback, contact:
-        <br><br>
-        <h3><a href="http://www.qcc.cuny.edu/engtech/ET_Faculty/Wu.html" target="_blank">Professor Huixin Wu</a></h3>
-        <b>Lecturer </b> <br>
-        <i>Engineering Technology Department </i> <br>
-        <a href="http://www.qcc.cuny.edu/" target="_blank"> Queensborough Community College</a> <br>
-        <a href="https://www.google.com/maps/search/qcc/@40.7561779,-73.7599375,17z/data=!3m1!4b1" target="_blank">222-05 56th Avenue, Bayside, NY 11364</a>  <br>
-        <a href="mailto:hwu@qcc.cuny.edu">hwu@qcc.cuny.edu</a>
-        <br> <br> <hr>
-        <i><h6>Digital Computer Theory: material prepared by professor Huixin Wu @ 2019</h6></i>
+                <p><b>Lab Safaty and Lab Behavior Video</b></p>
+                <iframe src="https://www.youtube.com/embed/qPXPz5VWk_8" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </section>
+        <section class="modules" id="labMathReview">
+            <button class="modAccordion">Lab Experiment 0: Brief Math Review</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p> Laboratory 0 is based on a review of the basic mathematics used for digital computing technicians.
+                    The topics include how to find the remainder of a division, the basic rules of mathematical order of
+                    operation, and basic algebra laws.
+                </p>
+                <p><a href="labs/LabExperiment0.pdf" download target="_blank" class='download'>Download Lab Experiment
+                        0</a></p>
+            </div>
+        </section>
+        <!-- Mod1 -->
+        <h3 class="divider">Module 1: Numerical System and logic gates</h3>
+        <section class="modules" id="lab1">
+            <button class="modAccordion">Lab Experiment 1: Number Systems and Codes</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p> Binary number and digital codes are fundamental to computers and digital electronics. Computers
+                    store information as “bits”, short for binary digit. A bit is a 0 or a 1, but can be represented in
+                    many ways. For example, as true or false, or a light being on or off. In a computer, a 1 bit is
+                    stored as an electrical voltage of 5V, and a 0 bit is 0 volts. This representation of 1’s and 0’s
+                    are known as binary coding. The natural system for computers is to use base 2, which is the binary
+                    number of system. Binary numbers use only the digits 0 and 1, and each position corresponds to a
+                    power of 2.
+                </p>
+                <p>The decimal system is important because it is universally used to represent quantities outside a
+                    digital system. In a decimal system, numbers are encoded in a positional number system. Each number
+                    is represented by a string of digits, where each digit position has an associated weight. For
+                    example: 3956 = (3*1000) + (9*100) + (5*10) + (4*1).</p>
+                <p>Since binary code are extremely long, one way to simplify a binary code is by grouping into a group
+                    of 4-bits or 3-bits. A group of 4-bit (nibbles) is called the hexadecimal number of system. It is a
+                    base 16 system because it has 16 digits, 24 = 16. To represent a single hexadecimal digit, we use
+                    0-9 and then A, B, C, D, E, F to represent the 10, 11, 12, 13, 14, and 15, respectively.</p>
+                <p>Like the hexadecimal number system, the octal number system provides a convenient way to express
+                    binary number and codes. However, it is used less frequently than hexadecimal in conjunction with
+                    computers and microprocessors to express binary quantities. One octal digit is a decimal
+                    representation of a group of 3-bit. Therefore, the octal number system is a base of 8 system
+                    composed of eight digits, 0-7.</p>
+                <p> <a href="labs/LabExperiment1.pdf" download target="_blank" class='download'>Download Lab Experiment
+                        1</a></p>
+            </div>
+        </section>
+        <section class="modules" id="lab2">
+            <button class="modAccordion">Lab Experiment 2: Using Multisim to Build Digital Circuit</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p> schematic capture and simulation application that assists you in carrying out the major steps in the
+                    circuit design flow. Multisim can be used for both analog and digital circuits and also includes
+                    mixed analog/digital simulation capability, and microcontroller co-simulation. Simulating the
+                    circuits before building them, catches errors early in the design flow, saving time and money.</p>
+                <p> <a href="labs/LabExperiment2.pdf" download target="_blank" class='download'>Download Lab Experiment
+                        2</a></p>
+            </div>
+        </section>
+        <section class="modules" id="lab3">
+            <button class="modAccordion">Lab Experiment 3: Introduction to Digital Electronics Lab Equipment and
+                Components</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>Introduction</b><br><br>Lab experiment 3 presents simple experiments to understand the basic use of
+                    the digital components.</p>
+                <p><a href="labs/LabExperiment3.pdf" download target="_blank" class='download'>Download Lab Experiment
+                        3</a></p>
+            </div>
+        </section>
+        <section class="modules" id="lab4">
+            <button class="modAccordion">Lab Experiment 4: Basic Logic Gates</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>Digital signals is made up of series of 1’s and 0’s that represent numbers,
+                    letters, symbols, or control signals. Those series of 1’s and 0’s can be measured using an
+                    oscilloscope and plot into a timing diagram. In the timing diagram, logic of 1’s and 0’s is
+                    represented by a HIGH and a LOW voltage level respectively. The voltage level to represent a HIGH is
+                    between 1.5 V and 5 V, and a LOW voltage level is closed to 0 V. Timing diagram is used to show the
+                    voltage level between 5 V and 0 V, which is digital logic 1 (HIGH = 5 V) and 0 (LOW = 0 V). </p>
+                <p>
+                    Logic gates are integrated circuit (IC) that performs a logic operation on one or more logic inputs,
+                    and produce a single logic output. They are commonly found in digital circuit, and the five basic
+                    logic gates are AND, OR, NAND, NOR, and NOT (inverter) gate, plus two especial gates which are
+                    Exclusive-OR (X-OR) and Exclusive-NOR (X-NOR). For today’s lab, you will build and experiment seven
+                    different logic gates. For each logic gate, build the circuit, observe and record the output in its
+                    respective truth table, and sketch a timing diagram of the output signal according to the truth
+                    table.</p>
+                <p> <a href="labs/LabExperiment4.pdf" download target="_blank" class='download'>Download Lab Experiment
+                        4</a></p>
+            </div>
+        </section>
+        <!-- Mod2 -->
+        <h3 class="divider">Module 2: Combinational of logic circuit and logic circuit simplification</h3>
+        <section class="modules" id="lab5">
+            <button class="modAccordion">Lab Experiment 5: Combination Logic Circuits</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>The theoretical operation of a combination logic circuit can be predicted by
+                    analyzing the circuit’s output for every possible input combination. The circuit analysis for each
+                    input combination is performed by determining the resultant output of each gate, working from the
+                    input side of the circuit to the output.</p>
+                <p> Logic circuits may be functionally equivalent. They may perform the same function (their logic truth
+                    tables are identical) but be constructed from different logic gates or interconnected in an entirely
+                    different manner.</p>
+                <p>The process of combinational circuit design start from obtaining a Sum-Of-Product, SOP, equation,
+                    which is the most commonly used format for writing logic expressions. SOP expressions can be quickly
+                    written from a truth table and they are easily implemented using a tow-level (not counting inverters
+                    that may be needed) gate network. Conversely, these standard circuits that are used to implement SOP
+                    functions can be quickly analyzed just by inspection. A SOP expression consists of two or more
+                    products (AND operation) terms that are sum (OR operation) together. The SOP expression is obtained
+                    from a truth table by writing down all of the product terms (called midterms) whose outputs are high
+                    fro the desired function and then add them together. The resultant and simplified SOP expression can
+                    be directly implemented with either AND/OR or NAND/NOR circuit designs. (Moss, 2004).</p>
+                <p> <a href="labs/LabExperiment5.pdf" download target="_blank" class='download'>Download Lab Experiment
+                        5</a></p>
+            </div>
+        </section>
+        <section class="modules" id="lab6">
+            <button class="modAccordion">Lab Experiment 6: Simplification of Logic Circuit Using Boolean Algebra and
+                DeMorgan’s Theorem</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>Many times in the design on logic circuits, the logic output in SOP expression might have to reduce
+                    to its simplest form or change its form to a more convenient one to implement the expression most
+                    efficiently.</p>
+                <p> Boolean algebra is used to describe how signals are combined to create a desired output. It is also
+                    a very important tool, along with the application of DeMorgan’s theorem, uses to reduce expressions
+                    to minimal terms to minimize the hardware required in constructing a circuit.</p>
+                <p>The Boolean rules are based on the expressions using inverters (NOT), AND, and OR gates, while
+                    DeMorgan’s theorem are based on the equivalency of a NAND and NOR gates.</p>
+                <p> <a href="labs/Lab6_BooleanDeMorgan.pdf" download target="_blank" class='download'>Download Lab
+                        Experiment 6</a></p>
+            </div>
+        </section>
+        <section class="modules" id="lab7">
+            <button class="modAccordion">Lab Experiment 7: Simplification of Logic Circuit Using Karnaugh Map</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>The basic procedure for combinational logic circuit design is to first develop the truth table that
+                    defines the desired function and then from the table, write a simplified SOP expression. The
+                    expression can be simplified using various techniques such as Boolean algebra and Karnaugh Mapping.
+                </p>
+                <p> Karnaugh Mapping is a simple and fast procedure for reducing SOP logic expressions and thereby also
+                    reducing the implemented circuit’s complexity and cost. In Karnaugh mapping, the function is defined
+                    graphically. The relationship between the function’s inputs and the output are plotted in a Karnaugh
+                    Map (K-Map). This will be the same information that would be listed in the truth table for the
+                    function. If the K-Map is not properly labeled, the function cannot be correctly simplified and the
+                    resulting design will be wrong. With K-Mapping, the function reduction is accomplished by forming
+                    appropriate groupings of adjacent 1s in the output. In connection to it, the number of one that each
+                    group can have must be in a base of 2, for example, group of 24 = 16, 23 = 8, 22 = 4 1s, 21 = 1, or
+                    20 = 1 1’s. Then identify the common input variables for the group and write the indicated product
+                    term.</p>
+                <p>The Boolean rules are based on the expressions using inverters (NOT), AND, and OR gates, while
+                    DeMorgan’s theorem are based on the equivalency of a NAND and NOR gates.</p>
+                <p>Karnaugh Mapping can best be applied to functions with 5 or fewer input variables.</p>
+                <p><a href="labs/LabExperiment7.pdf" download target="_blank" class='download'>Download Lab Experiment
+                        7</a></p>
+            </div>
+        </section>
+        <section class="modules" id="lab8">
+            <button class="modAccordion">Lab Experiment 8: Decoder Circuit: Binary-Coded-Decimal to 7-segment
+                Decoder</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>A Binary Coded Decimal is a number in which each decimal digit is coded as a binary number. Each
+                    decimal digit can be one of the following: 0, 1, 2, 3, 4, 5, 6, 7, 8, or 9. The largest decimal
+                    symbol is 9, and its binary representation needs 4 bits (10012).</p>
+                <p> Therefore the input to a decoder that accepts a BCD number needs 4 input variables. In this
+                    experiment we will assign the letters A (LSB), B, C, and D (MSB) to the BCD input variables.</p>
+                <p>The Boolean rules are based on the expressions using inverters (NOT), AND, and OR gates, while
+                    DeMorgan’s theorem are based on the equivalency of a NAND and NOR gates.</p>
+                <p>A very popular and user friendly display for decimal symbols is the 7 segment display. This display
+                    consists of 7 rectangular shaped LEDs arranged in a figure 8.1. Each one of these is named a through
+                    g as can be seen in the following picture. There are two types of 7 segment displays, namely the
+                    common anode and the common cathode. Here we will use a common anode display. Pin 3 is connected to
+                    +5V. A 220 Ω resistor is connected to the cathode of each LED. To light any particular LED segment,
+                    its resistor must be grounded. Therefore a ground (or 0) turns the LED on. Keep in mind that pins 4,
+                    5, and 12 are not present in the display.</p>
+                <p><a href="labs/Lab8_7segment.pdf" download target="_blank" class='download'>Download Lab Experiment
+                        8</a></p>
+            </div>
+        </section>
+        <section class="modules" id="lab9">
+            <button class="modAccordion">Lab Experiment 9: Data Selector - Multiplexer</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>A multiplexer performs the function of selecting the input on any one of several input lines and
+                    feeding this input to one output line. Usually there are 4, 8, or 16 inputs. These are referred to
+                    as 4 to 1, 8 to 1, or 16 to 1 multiplexers. A multiplexer is also referred to as a ‘Data Selector’
+                    and sometimes as a MUX. A MUX can be used in two ways. One way is to use it to implement a hardware
+                    version of a truth table. The other way is to use it to convert parallel data bits into a stream of
+                    serial data bits.</p>
+                <p> <a href="labs/Lab9_Multiplexer.pdf" download target="_blank" class='download'>Download Lab
+                        Experiment 9: Multiplexer</a></p>
+            </div>
+        </section>
+        <section class="modules" id="lab10">
+            <button class="modAccordion">Lab Experiment 10: Logical Function Circuit: Comparator </button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>The basic function of a comparator is to compare the magnitude of two binary numbers to determine the
+                    relationship between them. In its simplest form, a comparator determines if two binary numbers are
+                    equal or not. These comparators can be set up with relatively simple gates.</p>
+                <p> <a href="labs/lab10_comparator.pdf" download target="_blank" class='download'>Download Lab
+                        Experiment 10: Comparator</a></p>
+            </div>
+        </section>
+        <!-- Mod3 -->
+        <h3 class="divider">Module 3: Sequential Logic Circuits</h3>
+        <section class="modules" id="lab11">
+            <button class="modAccordion">Lab Experiment 11: Introduction to flip flops</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>The Flip Flop is a bistable (stable in two states) multivibrator. The other two types of
+                    multivibrators are the monostable or one shot (stable in one state only) and the astable (not
+                    stable) or oscillator. The Flip Flop is the basic memory device because by staying in the state that
+                    it was assigned, it “remembers” the last state. In FF talk, when Q=1 the FF is said to be “set”
+                    while when Q=0 it is said to be “reset” or “clear.” Some Flip Flops may have a reset (or clear)
+                    and/or a set line that directly change the output. All Flip Flops change states according to data
+                    lines on clock pulses.</p>
+                <p><a href="labs/lab11_flipFlops.pdf" download target="_blank" class='download'>Download Lab Experiment
+                        11: Introduction to flip flops</a></p>
+            </div>
+        </section>
+        <section class="modules" id="lab12">
+            <button class="modAccordion">Lab Experiment 12: Design of Synchronous Counter</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>Most counters follows a normal binary sequence, although their counting sequences can be somewhat
+                    altered, for example, 000, 010,100, 110, …
+                    <br><br>Several methods exist for designing counters that follow arbitrary sequences, in this
+                    exercise, you will be introduced to the design a synchronous counter using J-K flip flops.
+                </p>
+                <p> <a href="labs/Lab12_SynchronousCounters.pdf" download target="_blank" class='download'>Download Lab
+                        Experiment 12: Design of Synchronous Counter</a></p>
+            </div>
+        </section>
+    </main>
+    <!---------------------------------------------------->
+    <!--------------------- PROJECTS --------------------->
+    <!---------------------------------------------------->
+    <div class="separator" id="projects"></div>
+    <main class="mainProjects" id="projects_left">
+        <h2 class="subtitle" >Lab Projects</h2>
+        <p class="subtitleParagraph">Build your professional projects</p>
+        <section class="modules" id="project1">
+            <button class="modAccordion">Lab Project 1: Digital circuit design to display a name</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p> Using Multisim, design a decoder (like the 7447) that will display each letter of either your first
+                    or last name (use 5 letters). A template and worksheet are provided to you as a starting point.
+                    There is an example solution on page 3. Your report should describe the design process and must
+                    include the Multisim file for your design along with the completed Truth Table and Karnaugh maps.
+                </p>
+                <p><a href="labs/project1.pdf" download target="_blank" class='download'>Download Lab Experiment Project
+                        1: Digital Design</a></p>
+            </div>
+        </section>
+        <section class="modules" id="project2">
+            <button class="modAccordion">Lab Project 2: Digital circuit design to display a sequence of distinct
+                numbers</button>
+            <div class="modContent">
+                <p><b>Introduction</b></p>
+                <p>Design a six state skip counter using either JK or D Flip-Flops.
+                </p>
+                <p> <a href="labs/project2.pdf" download target="_blank" class='download'>Download Lab Experiment
+                        Project 2: Digital Design</a></p>
+            </div>
+        </section>
+    </main>
+    <!---------------------------------------------------->
+    <!----------------- WRITING ASSIGNMENT --------------->
+    <!---------------------------------------------------->
+    <div class="separator" id="writingAssignments"></div>
+    <main class="mainAssignment" id="writingAssignments_left">
+        <h2 class="subtitle" >Writing Assignments</h2>
+        <p class="subtitleParagraph">Project your professional opinion as a technical engineer</p>
+        <section class="modules" id="wi_low_1">
+            <button class="modAccordion">Writing Assignment 1 (Low Stakes): <i> Time, culture, and
+                    technology</i></button>
+            <div class="modContent">
+                <p><b>Description</b></p>
+                <p>Homework Question: The numerical system has been with humanity since the creation of the counting
+                    system and has been with us ever since. The numerical system is so close to us that we unknowingly
+                    use it almost in all daily activities. Write three daily activities that you unconsciously use a
+                    number system without realizing it.</p>
+                <p><a href="wi/WA1_LowStake_NumericSystem.pdf" download target="_blank" class='download'>Download
+                        Writing Assignment 1 (Low Stakes)</a> </p>
+            </div>
+        </section>
+        <section class="modules" id="wi_high_1">
+            <button class="modAccordion">Writing Assignment 1 (High Stakes): <i>Time, culture, and
+                    technology</i></button>
+            <div class="modContent">
+                <p><b>Description</b></p>
+                <p>Your first writing assignment is to read and write a critique of an article about numerical system.
+                    The article is named Five Great 2014 Articles of Numerical System and it is published in
+                    www.glossographia.wordpress.com (Glossgraphia, 2018). The argument of the critique must be linked to
+                    the discussion of the subject as requested by the instructor. With respect to the technical part,
+                    the format of the writing assignment has to follow the technical requirement established by the
+                    instructor of the class. </p>
+                <p><b>The article</b></p>
+                <p>Bender, Andrea, and Sieghard Beller. 2014. “Mangarevan invention of binary steps for easier
+                    calculation.” Proceedings of the National Academy of Sciences 111 (4):1322-1327.</p>
+                <p>When Leibniz demonstrated the advantages of the binary system for computations as early as 1703, he
+                    laid the foundation for computing machines. However, is a binary system also suitable for human
+                    cognition? One of two number systems traditionally used on Mangareva, a small island in French
+                    Polynesia, had three binary steps superposed onto a decimal structure. Here, we show how this system
+                    functions, how it facilitated arithmetic, and why it is unique. The Mangarevan invention of binary
+                    steps, centuries before their formal description by Leibniz, attests to the advancements possible in
+                    numeracy even in the absence of notation and thereby highlights the role of culture for the
+                    evolution of and diversity in numerical cognition. (Glossgraphia, 2018)</p>
+                <p><b>Discusssing the subject</b></p>
+                <p>Technology and culture are key contributors to the way in which change occurs over time.<br>
+                    According to the article, and your lived experience, do you believe there are benefits to using a
+                    binary number system over a base of ten? What role does culture play in our number systems and how
+                    has technological advancements modified our numeracy system over time.</p>
+                <p><b>Technical Requirements:</b></p>
+                <p>
+                <ul>
+                    <li>Format: The writing assignment MUST be typed, Word document, font size: 12 pts, double line
+                        spacing, 1” by 1” margin.</li>
+                    <li>Length: 2 pages, at least 200 words not including cover page.</li>
+                    <li>The cover page should have the following information:
+                        <ul>
+                            <li>College name</li>
+                            <li>Department:</li>
+                            <li>Course name:</li>
+                            <li>Title of your writing assignment</li>
+                            <li>Student’s name</li>
+                            <li>Submitted date</li>
+                            <li>Instructor:</li>
+                        </ul>
+                    </li>
+                    <li>Organization: The cover goes on page 1, and the student's discussion and critique goes on page 2
+                        and 3</li>
+                </ul>
+                </p>
+                <p><b>Grading</b></p>
+                <p>
+                <ul>
+                    <li>Technical Requirement: 20 points</li>
+                    <li>2 pages (at least 600 words) of discussion and critique: 80 points</li>
+                </ul>
+                </p>
+                <p><a href="wi/WA1_LowStake_NumericSystem.pdf" download target="_blank" class='download'><a
+                            href="wi/WA1_HighStake_Numerical System.pdf" download target="_blank"
+                            class='download'>Download Writing Assignment 1 (High Stakes)</a></p>
+            </div>
+        </section>
+        <section class="modules" id="wi_low_2">
+            <button class="modAccordion">Writing Assignment 2 (Low Stakes): <i>
+                    Present Your Perspective on a Technological Issue</i></button>
+            <div class="modContent">
+                <p><b>Description</b></p>
+                <p>Question 1: When you have a research project, do you consider as an alternative to collect
+                    information from the library to complete your project? Why or why not?</p>
+                <p>Circle your answer in the scale of 1(strongly disagree) to 5(strongly agree)</p>
+                <ol type="a">
+                    <li>I usually visit the college library. 1 2 3 4 5 </li>
+                    <li>I usually visit the library in my neighborhood. 1 2 3 4 5</li>
+                    <li>I feel that going to the library is a waste of time and boring. 1 2 3 4 5</li>
+                    <li>Libraries are rather a hang site for young people than a research site or a study place. 1 2 3 4
+                        5 </li>
+                    <li>I understand and I know how to find information, documentaries, and citations in a library. 1 2
+                        3 4 5 </li>
+                </ol>
+                <p><a href="wi/WA2_LowStake_TechnologyIssue.pdf" download target="_blank" class='download'>Download
+                        Writing Assignment 2 (Low Stakes)</a></p>
+            </div>
+        </section>
+        <section class="modules" id="wi_high_2">
+            <button class="modAccordion">Writing Assignment 2 (High Stakes): <i>
+                    Present Your Perspective on a Technological Issue</i></button>
+            <div class="modContent">
+                <p><b>Description</b></p>
+                <p>Your second writing assignment, you have to present your personal perspective to a social
+                    technological issue assigned by your instructor. As part of this social technology writing
+                    assignment, you have to visit a part of the community to collect information about the technology
+                    issue and create supporting ideas to defend your perspective. You can also get information from the
+                    internet or library citations as data and statistics to help in your discussion. All the information
+                    obtained by the media mentioned must be documented as citations in your writing assignment.</p>
+                <p>You are not required to do an extensive work on your project, but still you need to have good
+                    supports on your arguments, good organization, and noteworthy ideas. Your purpose of your issue is
+                    to determine how well you can develop a compelling argument supporting your own perspective on a
+                    technological issue and propose solutions to it as an engineering technology student</p>
+                <p><b>The technological issue</b></p>
+                <p><i>With the blossoming of the internet, traditional libraries are obsolete. Students should not be
+                        forced to learn traditional research skills, and public libraries should be demolished and the
+                        lands they stand on used for more efficient public purposes.</i> </p>
+                <p><b>Preparing your perspective</b></p>
+                <p>You will not be expected to know specific critical thinking or writing terms or strategies;
+                    instead,you should be able to use reasons, evidence, and examples to support your position on an
+                    issue. Suppose, for instance, that an issue topic asks you consider whether it is important for
+                    government to provide financial support public libraries. If your position is that government should
+                    fund public libraries, you might support your position by discussing the reasons public libraries is
+                    important and explain that libraries are public places where resources is available to anyone. On
+                    the other hand, if your position is that government should not support public libraries, you might
+                    point out that, given limited governmental funds, public libraries are not as deserving of
+                    governmental funding as are other, more socially important, institutions.</p>
+                <p>Or, if you are in favor of government funding for public libraries only under certain conditions, you
+                    might focus on the technology criteria, cultural concerns, or economic conditions that you think
+                    should determine how – or whether – public libraries receive government funds. It is not your
+                    position that matters so much as the critical thinking skills you display in developing your
+                    position.</p>
+                <p>An excellent way to prepare for the issue task is to practice writing on some of the published
+                    topics, but remember: you are not allow to copy and paste information from the internet or from a
+                    document written by another person. There is no “best” approach: some people prefer to start
+                    practicing without regard to the 45-minute time limit; others prefer to take a “timed test” first
+                    and practice within the time limit. No matter which approach you take when you practice the issue
+                    task, you should review the task directions, then:</p>
+                <ul>
+                    <li>Carefully read the claim made in the topic and make sure you understand the issue involved; if
+                        it seems unclear, discuss it with a friend, relative, or instructor.</li>
+                    <li>Think about the issue in relation to your own ideas and experiences, to events you have read
+                        about or observed, and to people you have known; this is the knowledge base from which you will
+                        develop compelling reasons and examples in your argument that reinforce, negate, or qualify the
+                        claim in some way.</li>
+                    <li>Decide what position on the issue you want to take and defend –remember you are free to agree or
+                        disagree completely or to agree with some parts or some applications but not others.</li>
+                    <li>Decide what compelling evidence (reasons and examples) you can use to support your position.
+                    </li>
+                </ul>
+                <p>Once you have decided on a position to defend, consider the perspective of others who might not agree
+                    with your position. Ask yourself:</p>
+                <ul>
+                    <li>What reasons might someone use to refute or undermine my position?</li>
+                    <li>How should I acknowledge or defend against those views in my essay?</li>
+                </ul>
+                <p> To plan your response, you might want to summarize your position and make brief notes about how you
+                    will support the position you are going to take. When you have done this, look over your notes and
+                    decide how you will organize your response. Then write a response developing your position on the
+                    issue. Even if you don’t write a full response, you should find it helpful to practice with a few of
+                    the issue topics and to sketch out your possible responses.</p>
+                <p><b>Technical requirements</b></p>
+                <ul>
+                    <li>Format: The writing assignment MUST be typed, Word document, font size: 12 pts, double line
+                        spacing, 1” by 1” margin.</li>
+                    <li>Length: 5 pages, at least 1200 words not including cover page.</li>
+                    <li>The cover page should have the following information:
+                        <ul>
+                            <li>College name (Queensborough Community College)</li>
+                            <li>Department: Engineering Technology</li>
+                            <li>Course name: ET540 Digital Computing Theory</li>
+                            <li>Title of your writing assignment</li>
+                            <li>Student’s name:</li>
+                            <li>Submitted date:</li>
+                            <li>Instructor:</li>
+                        </ul>
+                    </li>
+                    <li>Organization: The cover goes on page 1, and the student's discussion on the technological issue
+                        goes on the other 5 pages.</li>
+                </ul>
+                <p><b>Grading</b></p>
+                <ul>
+                    <li>Technical Requirement: 20 points</li>
+                    <li>5 pages of discussion on the technological issue: 80 points</li>
+                </ul>
+                <p> <a href="wi/WA2_HighStake_Technological_Issue.pdf" download target="_blank"
+                        class='download'>Download Writing Assignment 2 (High Stakes)</a></p>
+            </div>
+        </section>
+    </main>
+    <!---------------------------------------------------->
+    <!--------------- COPYRIGTHED AND CREDITS ------------>
+    <!---------------------------------------------------->
+    <div class="separator" id="copyrighted"></div>
+    <footer class="copyrighted mainCopyrighted" id="copyrighted_left">
+        <p>This Introduction to Digital Computer Theroy OER material, by Huixin Wu, is copyrighted under the terms of a
+            Creative Commons license:</p>
+        <section class="oer_license">
+            <a href="https://creativecommons.org/licenses/" target="_blank">
+                <figure class="oer_logo"><img src="img/copyrighted.png" />
+                    <figcaption><i>This work is freely redistributable for non-commercial use, share-alike with attribution</i></figcaption>
+                </figure>
+            </a>
+        </section>
+        <section>
+            <p><b>About the Authors:</b></p>
+            <p> Professor Wu is the course coordinator of the Digital Computer Theory course with the department of
+                Engineering Technology at QCC. As the course coordinator, professor Wu updates the course outline and
+                also creates homework and exercises to complement the learning materials for the course. She also has
+                participated in grants and has experiences in creating new teaching terminologies for engineering
+                technology students. She was the CO-PI of the National Science Foundation (NSF) STEM grant titled “A
+                video Lecture Library and an Interactive Systems for Computer Programming Concepts”. In addition from
+                her teaching schedule, she is the lead of the curriculum development of TechWorks grant, and a faculty
+                mentor of the students Undergraduate Research Project program at QCC. Professor Wu has more than ten
+                years of experience teaching both the Digital Computer Theory course and laboratory in QCC and NYCCT.
+            </p>
+            <p>For more information or feedback contact: </p>
+            <div class="footer_author">
+            <p>
+                <a href="http://www.qcc.cuny.edu/engtech/ET_Faculty/Wu.html" target="_blank">Professor Huixin Wu</a>
+            </p>
+            <p class="info"><b>Lecturer</b></p>
+            <p class="info"><a href="mailto:hwu@qcc.cuny.edu">hwu@qcc.cuny.edu</a></p>
+            <p class="info"><i>Department of Engineering Technology </i> </p>
 
+            <p class="info"><a href="http://www.qcc.cuny.edu/" target="_blank"> Queensborough Community College</a> </p>
+            </div>
+            <div class="qcc_map">
+                <p><a href="https://www.google.com/maps/search/qcc/@40.7561779,-73.7599375,17z/data=!3m1!4b1"
+                        target="_blank">222-05 56th Avenue, Bayside, NY 11364</a></p>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12089.201636232898!2d-73.757401!3d40.755417!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x49ff66ba1d2376bd!2sQueensborough%20Community%20College!5e0!3m2!1sen!2sus!4v1653939978288!5m2!1sen!2sus"
+                    class="QCCGoogleMap" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <hr>
+            <p>Digital Computer Theory: material prepared by professor Huixin Wu @ 2023 <a class="openTermsofuse">Terms of use</a></p>
+        </section>
+    </footer>
+    <!---------------------------------------------------->
+    <!------------- NAVIGATION MENU/ACCORDION ----------->
+    <!---------------------------------------------------->
+    <section class="collapsibleContainer">
+        <div class="tab">
+          <input type="checkbox" name="tabs" id="tab-menu">
+          <label for="tab-menu"><span class="collapsible_menu">Digital Computer Theory</span></label>
+          <div class="tab-content">
+            <nav class="navCollapsible">
+                <a href="#introduction" class="nav_menu">Digital Computer Theory OER</a>
+                <a href="#modules" class="nav_menu">Chapter Modules</a>
+                <a href="#homework" class="nav_menu">Exercises and Homework</a>
+                <a href="#labs" class="nav_menu">Lab Experiments</a>
+                <a href="#projects" class="nav_menu">Lab Projects</a>
+                <a href="#writingAssignments" class="nav_menu">Technical Writing Assignments</a>
+                <a href="#copyrighted" class="nav_menu">OER author</a>
+            </nav>
+          </div>
+        </div>
+      </section>
+    <!---------------------------------------------------->
+    <!------------- TERMS OF USE MODAL WINDOW  ----------->
+    <!---------------------------------------------------->
+    <section class="modalWindow" id="modal_termsofuse">
+        <div class="modalContent">
+            <header>Terms of use <span class="closeModal">&#9932</span></header>
+            <main>
+                <p>Digital Circuit Theory OER website is specially designed and developed to provide users about digital circuits theory and practices. If you browse or come across this website, it means that you are agreeing to terms of use policy states by this OER website. Given below are some of the terms and conditions subjected to follow by the users before using the website.</p>
+                <ul>
+                    <li>ALL THE INFORMATION AND ADVICE PROVIDED AT THE DIGITAL CIRCUIT THEORY OER WEBSITE IS PROVIDED FOR EDUCATIONAL USE ONLY. IT IS COPYRIGHTED UNDER THE TERMS OF A CREATIVE COMMONS LICENSE: FREELY REDISTRIBUTABLE FOR NON-COMMERCIAL USE, SHARE-ALIKE WITH ATTRIBUTION.</li>
+                    <li>Digital Circuit Theory OER website is not responsible for the content of any other website or material linked to it. Use of the content from these websites is entirely at the users own risk.</li>
+                    <li>Electricity, applications using electricity and electrical equipment and materials are dangerous and have the potential to kill or severely harm an individual or individuals, and to cause damage to property and possessions. By using the Digital Circuit Theory OER website, you acknowledge that you understand the potential consequences to yourself and others around you when using electricity and electrical equipment. It is highly recommended to carry out the experimental activity under the supervision of a professional or lab instructors.</li>
+                    <li>The exercises and examples presented in Digital Circuit Theory OER website are aimed at practicing and understanding digital circuit theories and digital circuits behavior. Consequently, some exercises do not present real applications other than theory practices.</li>
+                </ul>
+            </main>
+            <footer>
+                <span class="close_modal">CLOSE</span>
+            </footer>
+        </div>
+    </section>
+    <!---------------------------------------------------->
+    <!---------------- JS CODE AND FILES ----------------->
+    <!---------------------------------------------------->
+    <script src="scripts.js"></script>
+</body>
 
-    </div><!-- end of credits -->
-
-    <script type="text/javascript" src="js/default.js">
-
-    </script>
-
-  </body>
 </html>

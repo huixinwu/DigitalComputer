@@ -1,0 +1,152 @@
+/*---------- LARGE SCREEN ---------*/
+@media only screen and (max-width: 1400px) {
+    .introTitle {
+        font-size: 1.5em;
+    }
+}
+
+/*---------- MEDIUM-LARGE SCREEN ---------*/
+@media only screen and (max-width: 1000px) {
+    .introImg {
+        margin: 10%;
+    }
+
+    .introTitle {
+        font-size: 1em;
+    }
+
+    .navmenu {
+        margin: 15% auto;
+    }
+
+    .navmenu a {
+        padding: 0.9em 0em;
+        font-size: 0.8em;
+        border-radius: 6px;
+    }
+
+    .navmenu a:hover {
+        font-size: 0.9em;
+    }
+
+    .mainChapters,
+    .mainHomework,
+    .mainLab,
+    .mainAssignment,
+    .mainProjects,
+    .mainCopyrighted {
+        padding: 1em 3em;
+    }
+}
+
+/*---------- MEDIUM-LARGE SCREEN ---------*/
+@media only screen and (max-width: 800px) {
+    .menuLeft {
+        display: none;
+    }
+
+    .mainChapters,
+    .mainHomework,
+    .mainLab,
+    .mainAssignment,
+    .mainProjects,
+    .mainCopyrighted {
+        width: 100%;
+        float: none;
+        padding: 2em 4em;
+    }
+
+    .collapsibleContainer {
+        display: block;
+    }
+
+    .separator {
+        height: 1em;
+    }
+}
+
+/*---------- SMALL SCREEN ---------*/
+@media only screen and (max-width: 450px) {
+
+    p,
+    ul,
+    figcaption {
+        font-size: 0.8em;
+    }
+
+    .mainChapters,
+    .mainHomework,
+    .mainLab,
+    .mainAssignment,
+    .mainProjects,
+    .mainCopyrighted {
+        width: 100%;
+        float: none;
+        padding: 1em 2em;
+    }
+
+    .subtitle {
+        font-size: 1.2em;
+    }
+
+    .subtitleParagraph {
+        font-size: 0.7em;
+    }
+
+    .divider {
+        font-size: 0.9em;
+    }
+
+    .modAccordion {
+        font-size: 0.7em;
+    }
+
+    .oer_logo img {
+        width: 80%;
+    }
+
+    .tab label {
+        font-size: 0.8em;
+    }
+    .close_modal{
+        width: 50%;
+    }
+    .QCCGoogleMap{
+        width: 90%;
+    }
+    .collapsible_menu{
+        font-size: 1.3em;
+}
+.nav_menu{
+    font-size: 0.9em;
+}
+.nav_menu:hover{font-size: 0.95em;}
+}
+
+/*---------- X-SMALL SCREEN ---------*/
+@media only screen and (max-width: 320px) {
+ainChapters,
+    .mainHomework,
+    .mainLab,
+    .mainAssignment,
+    .mainProjects,
+    .mainCopyrighted {
+        padding: 0.5em;
+    }
+    .subtitle {
+        font-size: 1.1em;
+    }
+    .subtitleParagraph {
+        font-size: 0.5em;
+    }
+    .divider {
+        font-size: 0.8em;
+    }
+
+    .modAccordion {
+        font-size: 0.6em;
+    }
+    .tab label {
+        font-size: 0.7em;
+    }
+}
