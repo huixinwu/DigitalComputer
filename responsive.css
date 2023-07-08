@@ -121,6 +121,7 @@
     font-size: 0.9em;
 }
 .nav_menu:hover{font-size: 0.95em;}
+.modalContent{overflowY:scroll}
 }
 
 /*---------- X-SMALL SCREEN ---------*/
