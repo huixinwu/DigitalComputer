@@ -129,6 +129,9 @@ img {
 
 /*----  MODULES ---- */
 /* introduction module */
+.divider{
+    margin-top: 3em;
+}
 .txtContainer {
     margin-bottom: 5em;
 }
